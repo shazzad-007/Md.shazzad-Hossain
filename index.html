@@ -1,275 +1,539 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Md. Shazzad Hossain – CV</title>
-  <meta name="description" content="CV of Md. Shazzad Hossain: Senior Admin & Marketing professional with BRAC University experience." />
-  <style>
-    :root {
-      --bg: #0b1020;
-      --surface: #141a2b;
-      --text: #e9eaf5;
-      --muted: #aab4d4;
-      --accent: #6ea8fe;
-      --card: #1e2540;
-      --border: #2a2a3a;
-      --link: #7cc1ff;
-      --chip: #2a2f60;
-    }
-    html[data-theme="light"] {
-      --bg: #f7f7fb;
-      --surface: #ffffff;
-      --text: #0b1020;
-      --muted: #4a4a6a;
-      --accent: #1a6edb;
-      --card: #ffffff;
-      --border: #e5e5ee;
-      --link: #0b4bdc;
-      --chip: #e8eaff;
-    }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); }
-    a { color: var(--link); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    header { background: linear-gradient(135deg, #1b1f3a 0%, #251f40 100%); padding: 1.25rem; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
-    .brand { display: flex; align-items: center; gap: 1rem; }
-    .avatar { width: 120px; height: 120px; border-radius: 16px; object-fit: cover; border: 3px solid var(--border); }
-    .brand h1 { margin: 0; font-size: 1.25rem; }
-    .brand .subtitle { color: var(--muted); font-size: 0.95rem; }
-    .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; }
-    .btn, .link-btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 0.5rem 0.75rem; border-radius: 8px;
-      border: 1px solid var(--border); background: rgba(255,255,255,0.04);
-      color: var(--text); cursor: pointer; text-decoration: none;
-    }
-    .btn:hover, .link-btn:hover { background: rgba(255,255,255,0.08); }
-    .btn.primary { background: var(--accent); border-color: transparent; color: #fff; }
-    nav { display: flex; gap: .5rem; flex-wrap: wrap; }
-    nav a { padding: .25rem .6rem; border-radius: 6px; color: var(--text); background: rgba(255,255,255,0.04); border: 1px solid var(--border); }
-    nav a:hover { background: rgba(255,255,255,0.08); }
-    main { padding: 1.25rem 0 2rem; }
-    section { padding: 1.25rem 0; border-top: 1px solid var(--border); }
-    section:first-of-type { border-top: none; }
-    h2 { font-size: 1.05rem; margin: 0 0 .4rem; color: #fff; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; }
-    .card h3 { margin: 0 0 .5rem; font-size: 1rem; }
-    .list { margin: 0; padding-left: 1.1rem; color: var(--muted); }
-    .detail { color: #d6d6f0; }
-    .section-intro { color: var(--muted); margin-top: .25rem; }
-    .labels { display: flex; flex-wrap: wrap; gap: .5rem; margin: .5rem 0 0; }
-    .tag { background: var(--chip); color: #0b1020; padding: .15rem .5rem; border-radius: 6px; font-size: .8rem; }
-    footer { text-align: center; padding: 1rem 0; color: var(--muted); border-top: 1px solid var(--border); }
-    @media (max-width: 900px) {
-      .grid { grid-template-columns: 1fr; }
-      header { padding: 1rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Shazzad Hossain - Professional Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#035487',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
 
-  <header>
-    <div class="container brand" aria-label="Profile header">
-      <img class="avatar" src="assets/profile-photo.jpg" alt="Photo of Md. Shazzad Hossain" />
-      <div>
-        <h1>Md. Shazzad Hossain</h1>
-        <div class="subtitle">Senior Admin & Marketing Professional | BRAC University</div>
-        <div class="toolbar" aria-label="Header actions">
-          <div class="labels" aria-hidden="true">
-            <span class="tag">12+ years experience</span>
-            <span class="tag">Gold Standard Duke of Edinburgh Award</span>
-            <span class="tag">BRAC University</span>
-          </div>
-          <div style="display:flex; gap:.5rem; align-items:center;">
-            <button id="theme-toggle" class="btn" aria-label="Toggle theme">Toggle Theme</button>
-            <a class="btn primary" href="Md._Shazzad_Hossain_CV_F.pdf" target="_blank" rel="noopener" aria-label="Download full CV">Download CV</a>
-            <button class="btn" id="print-btn" aria-label="Print CV">Print</button>
-          </div>
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 glass-card border-b border-slate-200 dark:border-slate-800 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#hero" class="font-bold text-xl tracking-tight bg-gradient-to-r from-brand-600 to-indigo-600 bg-clip-text text-transparent">
+                SHAZZAD.
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">About</a>
+                <a href="#competencies" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">Competencies</a>
+                <a href="#experience" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">Experience</a>
+                <a href="#education" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">Education & Awards</a>
+                <a href="#publications" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">Publications</a>
+                <a href="#contact" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">Contact</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <!-- Theme Toggle Button -->
+                <button id="themeToggle" aria-label="Toggle dark mode" class="p-2 rounded-full text-slate-500 hover:bg-slate-200 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors">
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                </button>
+
+                <!-- Mobile menu toggle -->
+                <button id="menuToggle" aria-label="Toggle Navigation Menu" class="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <nav class="container" aria-label="Main navigation">
-      <a href="#profile">Profile</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#training">Training & Certifications</a>
-      <a href="#skills">Skills</a>
-      <a href="#accomplishments">Accomplishments</a>
-      <a href="#languages">Languages</a>
-      <a href="#personal">Personal</a>
-      <a href="#references">References</a>
-    </nav>
-  </header>
+        <!-- Mobile Nav Menu -->
+        <div id="mobileMenu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 px-4 pt-2 pb-4 space-y-3">
+            <a href="#about" class="block py-2 text-base font-medium text-slate-700 dark:text-slate-200 hover:text-brand-600">About</a>
+            <a href="#competencies" class="block py-2 text-base font-medium text-slate-700 dark:text-slate-200 hover:text-brand-600">Competencies</a>
+            <a href="#experience" class="block py-2 text-base font-medium text-slate-700 dark:text-slate-200 hover:text-brand-600">Experience</a>
+            <a href="#education" class="block py-2 text-base font-medium text-slate-700 dark:text-slate-200 hover:text-brand-600">Education & Awards</a>
+            <a href="#publications" class="block py-2 text-base font-medium text-slate-700 dark:text-slate-200 hover:text-brand-600">Publications</a>
+            <a href="#contact" class="block py-2 text-base font-medium text-slate-700 dark:text-slate-200 hover:text-brand-600">Contact</a>
+        </div>
+    </header>
 
-  <main class="container" id="profile">
-    <section aria-labelledby="profile-title">
-      <h2 id="profile-title">Profile</h2>
-      <p class="section-intro">
-        Motivated and results-driven professional with 12+ years in education administration, budgeting, and event management. Strong track record at BRAC University coordinating Student Life, clubs, and financial operations. Awarded The Duke of Edinburgh’s International Award (Bangladesh) Gold Standard. Currently pursuing EMBA (Marketing) at Jagannath University (enrolled 2025) with internship experience at Islami Bank Bangladesh PLC.
-      </p>
-    </section>
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section id="hero" class="py-16 md:py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <div class="flex-1 space-y-6 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-brand-50 text-brand-700 dark:bg-brand-900/40 dark:text-brand-300 border border-brand-200 dark:border-brand-800">
+                        <i data-lucide="award" class="w-4 h-4"></i> Duke of Edinburgh Gold Awardee
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                        Md. Shazzad Hossain
+                    </h1>
+                    <p class="text-xl font-medium text-brand-600 dark:text-brand-400">
+                        Senior Manager | Administration, Student Life & Event Management
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-300 max-w-2xl text-base sm:text-lg leading-relaxed">
+                        Results-driven higher education leader with over 12 years of experience in administrative oversight, budget planning, student life development, and large-scale campus event execution.
+                    </p>
 
-    <section id="contact" aria-labelledby="contact-title" class="grid">
-      <div class="card" aria-labelledby="contact-title">
-        <h3 id="contact-title" style="margin:0 0 .5rem;">Contact</h3>
-        <ul class="list" style="margin:0;">
-          <li><strong>Address:</strong> 47, Bonogram Road Wari -1203, Wari TSO, Sutrapur, Dhaka 1203</li>
-          <li><strong>Current Location:</strong> Dhaka</li>
-          <li><strong>Phone:</strong> 01818818886, 01670787453, 01620755113</li>
-          <li><strong>Email:</strong> just.shazzad@gmail.com, shazzadadd@gmail.com</li>
-          <li><strong>Facebook:</strong> <a href="https://www.facebook.com/share/1A1Zb6rihS/" target="_blank" rel="noopener">facebook</a></li>
-          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/shazzad-hossain-8b422568" target="_blank" rel="noopener">linkedin.com/in/shazzad-hossain-8b422568</a></li>
-        </ul>
-      </div>
+                    <!-- Contact & CTA Buttons -->
+                    <div class="flex flex-wrap gap-4 justify-center md:justify-start pt-2">
+                        <a href="mailto:just.shazzad@gmail.com" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium shadow-lg shadow-brand-500/20 transition-all hover:scale-[1.02]">
+                            <i data-lucide="mail" class="w-4 h-4"></i> Get in Touch
+                        </a>
+                        <button onclick="window.print()" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-medium transition-all hover:scale-[1.02]">
+                            <i data-lucide="download" class="w-4 h-4"></i> Print / Save Resume
+                        </button>
+                    </div>
 
-      <div class="card" aria-labelledby="cv-title">
-        <h3 id="cv-title" style="margin:0 0 .5rem;">Resume at a Glance</h3>
-        <p class="detail" style="margin:0;">
-          A concise snapshot of responsibilities and achievements from BRAC University administration, with emphasis on budgets, events, and Duke of Edinburgh leadership.
-        </p>
-      </div>
-    </section>
+                    <!-- Quick Links -->
+                    <div class="flex items-center justify-center md:justify-start gap-6 pt-4 text-slate-500 dark:text-slate-400 text-sm">
+                        <a href="https://linkedin.com/in/shazzad-hossain-8b422568" target="_blank" rel="noopener noreferrer" class="hover:text-brand-600 dark:hover:text-brand-400 flex items-center gap-1">
+                            <i data-lucide="linkedin" class="w-4 h-4"></i> LinkedIn
+                        </a>
+                        <a href="tel:+8801818818886" class="hover:text-brand-600 dark:hover:text-brand-400 flex items-center gap-1">
+                            <i data-lucide="phone" class="w-4 h-4"></i> +880 1818-818886
+                        </a>
+                        <span class="flex items-center gap-1">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i> Dhaka, Bangladesh
+                        </span>
+                    </div>
+                </div>
 
-    <section id="experience" aria-labelledby="experience-title" class="section-columns">
-      <div class="card" aria-labelledby="experience-title" style="grid-column: span 2;">
-        <h2 id="experience-title" style="margin:0 0 .5rem; font-size:1.1rem;">Experience</h2>
-        <ul class="list" style="margin:0;">
-          <li>
-            <strong>Senior Manager</strong> — Administration, Logistics, Office Management
-            <br/>BRAC University — 4 Nov 2012 to 4 Nov 2024
-            <ul class="list" style="margin-top:.25rem;">
-              <li>Managed student clubs and societies; aligned activities with UGC and university objectives to maximize social impact.</li>
-              <li>Optimized departmental budgets; maintained documentation; handled financial transactions for Student Life and clubs.</li>
-              <li>Implemented Student Life activities (including freshmen orientation) with internal/external stakeholders for effective events.</li>
-              <li>Prepared annual department budget; provided cross-department budgeting support.</li>
-              <li>Led the Duke of Edinburgh batch: database/budget management, student/staff coordination, and venue/communication.</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </section>
+                <!-- Avatar Box -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-brand-600 to-indigo-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-300"></div>
+                    <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 bg-slate-200">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" 
+                             alt="Md. Shazzad Hossain" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/400x400/0284c7/white?text=Shazzad+Hossain'" 
+                             class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section id="education" aria-labelledby="education-title" class="section-columns">
-      <div class="card" aria-labelledby="education-title" style="grid-column: span 2;">
-        <h2 id="education-title" style="margin:0 0 .5rem; font-size:1.1rem;">Education</h2>
-        <ul class="list" style="margin:0;">
-          <li><strong>EMBA (Marketing)</strong> — Jagannath University (Enrolled 2025; CGPA 3.20; internship at Islami Bank Bangladesh PLC)</li>
-          <li><strong>BBA (Marketing)</strong> — University of Liberal Arts Bangladesh (ULAB), 2012; CGPA 3.33/4</li>
-          <li><strong>HSC (Business Studies)</strong> — Dhaka Imperial College, 2007; CGPA 4.63/5</li>
-        </ul>
-      </div>
-    </section>
+        <!-- Professional Summary -->
+        <section id="about" class="py-12 bg-slate-100 dark:bg-slate-800/50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="p-8 rounded-2xl glass-card border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2 text-slate-900 dark:text-white">
+                        <i data-lucide="user" class="text-brand-600"></i> Professional Profile
+                    </h2>
+                    <p class="text-slate-700 dark:text-slate-300 leading-relaxed text-lg">
+                        Results-driven professional with over 12 years of experience in higher-education administration, student life, event management, logistics, and budget oversight. Proven ability to lead student clubs and societies, manage departmental budgets, coordinate large-scale campus events, and deliver measurable social impact. Holder of the prestigious Gold Standard of The Duke of Edinburgh's International Award. Seeking a senior-level opportunity to apply strong leadership, financial, and stakeholder-management skills in education, administration, or event-driven organizations.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-    <section id="training" aria-labelledby="training-title" class="section-columns">
-      <div class="card" aria-labelledby="training-title" style="grid-column: span 2;">
-        <h2 id="training-title" style="margin:0 0 .5rem; font-size:1.1rem;">Training & Certifications</h2>
-        <ul class="list" style="margin:0;">
-          <li>PROFESSIONAL DEVELOPMENT: Building an Effective Service Culture — BRAC University, Dhaka (2016)</li>
-          <li>PROFESSIONAL LEADERSHIP DEVELOPMENT: Building the Transactional Leader — BRAC University, Dhaka (2016)</li>
-          <li>AWARDED the Prestigious Gold Standard Award, The Duke of Edinburgh’s International Award, Bangladesh (Sept 2012 – Sept 2013)</li>
-        </ul>
-      </div>
-    </section>
+        <!-- Core Competencies -->
+        <section id="competencies" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Core Competencies</h2>
+                <p class="text-slate-500 dark:text-slate-400 mt-2">Key leadership & functional capabilities developed over 12+ years</p>
+            </div>
 
-    <section id="skills" aria-labelledby="skills-title" class="section-columns">
-      <div class="card" aria-labelledby="skills-title" style="grid-column: span 2;">
-        <h2 id="skills-title" style="margin:0 0 .5rem; font-size:1.1rem;">Skills & Capabilities</h2>
-        <ul class="list" style="margin:0;">
-          <li><strong>ACCOUNTS/FINANCE:</strong> Proficient in financial management, budgeting, and regulatory compliance; capable of analyzing financial statements.</li>
-          <li><strong>Annual Budgeting & Forecasting:</strong> Develop and manage annual budgets; optimize resource allocation and sustainability.</li>
-          <li><strong>Annual Report:</strong> Compile and analyze financial/operational data for stakeholder communications.</li>
-          <li><strong>Event Management:</strong> Plan, coordinate, and execute events with budgeting and vendor management.</li>
-          <li><strong>Project Management & Progress Monitoring:</strong> End-to-end oversight from initiation to delivery; risk management.</li>
-          <li><strong>Yearly Brand Budgeting:</strong> Develop and allocate brand budgets to strengthen market positioning.</li>
-        </ul>
-      </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Competency 1 -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-900/30 text-brand-600 flex items-center justify-center mb-4">
+                        <i data-lucide="building-2" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Administration & Office Management</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">Comprehensive office supervision, policy implementation, cross-departmental coordination, and operational workflow enhancement.</p>
+                </div>
 
-      <div class="card" aria-labelledby="languages-title" style="grid-column: span 2;">
-        <h2 id="languages-title" style="margin:0 0 .5rem; font-size:1.1rem;">Languages</h2>
-        <ul class="list" style="margin:0;">
-          <li>Bangla — Reading, Writing, Speaking: High</li>
-          <li>English — Reading, Writing, Speaking: High</li>
-        </ul>
-      </div>
-    </section>
+                <!-- Competency 2 -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 flex items-center justify-center mb-4">
+                        <i data-lucide="users" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Student Life & Club Oversight</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">Managing student organizations, advisory mentoring, encouraging engagement, and guiding activities toward measurable social impact.</p>
+                </div>
 
-    <section id="accomplishments" aria-labelledby="accomplishments-title" class="section-columns">
-      <div class="card" aria-labelledby="accomplishments-title" style="grid-column: span 2;">
-        <h2 id="accomplishments-title" style="margin:0 0 .5rem; font-size:1.1rem;">Accomplishments & Publications</h2>
-        <ul class="list" style="margin:0;">
-          <li><strong>Awards:</strong> The Prestigious Gold Standard Award (Duke of Edinburgh's International Award), Bangladesh — 2013</li>
-          <li><strong>Publication:</strong> Artificial Intelligence (AI) and Challenges Employees — Published 25 Apr 2025
-            <br/><a href="https://shorturl.at/kZMEp" target="_blank" rel="noopener">URL</a></li>
-        </ul>
-      </div>
-    </section>
+                <!-- Competency 3 -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 flex items-center justify-center mb-4">
+                        <i data-lucide="truck" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Logistics & Vendor Coordination</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">End-to-end event logistics, vendor negotiations, venue management, and resource allocation for major campus functions.</p>
+                </div>
 
-    <section id="personal" aria-labelledby="personal-title" class="section-columns">
-      <div class="card" aria-labelledby="personal-title" style="grid-column: span 2;">
-        <h2 id="personal-title" style="margin:0 0 .5rem; font-size:1.1rem;">Personal Details</h2>
-        <ul class="list" style="margin:0;">
-          <li><strong>Date of Birth:</strong> 1 Jan 1989</li>
-          <li><strong>Gender:</strong> Male</li>
-          <li><strong>Nationality:</strong> Bangladeshi</li>
-          <li><strong>Religion:</strong> Islam</li>
-          <li><strong>Height:</strong> 1.73 m</li>
-          <li><strong>Weight:</strong> 75 kg</li>
-          <li><strong>Marital Status:</strong> Married</li>
-          <li><strong>Blood Group:</strong> B+</li>
-          <li><strong>Permanent Address:</strong> 47, Bonogram Road Wari -1203, Wari TSO, Sutrapur, Dhaka 1203</li>
-          <li><strong>Current Location:</strong> Dhaka</li>
-        </ul>
-      </div>
-    </section>
+                <!-- Competency 4 -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-900/30 text-amber-600 flex items-center justify-center mb-4">
+                        <i data-lucide="wallet" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Annual Budgeting & Finance</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">Preparing and controlling departmental annual budgets, transaction documentation, financial reporting, and cost optimization.</p>
+                </div>
 
-    <section id="references" aria-labelledby="references-title" class="section-columns">
-      <div class="card" aria-labelledby="references-title" style="grid-column: span 2;">
-        <h2 id="references-title" style="margin:0 0 .5rem; font-size:1.1rem;">References</h2>
-        <ul class="list" style="margin:0;">
-          <li><strong>Reference 01:</strong> Md. Nurul Islam, BRAC University – Designation: Assistant Director Admin; Address: BRAC University; Mobile: +880 1817114304</li>
-          <li><strong>Reference 02:</strong> Dr. Aparna Islam Bulbul, BRAC University – Designation: Professor; Address: BRAC University; Mobile: +880 1717094036; Email: bulbul@bracu.ac.bd</li>
-          <li>Relation: Professional</li>
-        </ul>
-      </div>
-    </section>
-  </main>
+                <!-- Competency 5 -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-purple-50 dark:bg-purple-900/30 text-purple-600 flex items-center justify-center mb-4">
+                        <i data-lucide="network" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Stakeholder Liaison</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">Building collaborative relationships between internal administrative teams, external partners, UGC, and governmental authorities.</p>
+                </div>
 
-  <footer>
-    © Md. Shazzad Hossain, 2026 • <a href="Md._Shazzad_Hossain_CV_F.pdf" target="_blank" rel="noopener">View Full CV (PDF)</a>
-  </footer>
+                <!-- Competency 6 -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-rose-50 dark:bg-rose-900/30 text-rose-600 flex items-center justify-center mb-4">
+                        <i data-lucide="award" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Leadership & Development</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">Mentoring student leaders, fostering volunteerism, organizing residential projects, and cultivating an effective service culture.</p>
+                </div>
+            </div>
+        </section>
 
-  <script>
-    // Theme persistence (dark by default)
-    (function(){
-      const html = document.documentElement;
-      const saved = localStorage.getItem('cv-theme');
-      if (saved) {
-        html.setAttribute('data-theme', saved);
-      } else {
-        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-        html.setAttribute('data-theme', prefersLight ? 'light' : 'dark');
-      }
+        <!-- Professional Experience -->
+        <section id="experience" class="py-16 bg-slate-100 dark:bg-slate-800/50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Professional Experience</h2>
+                    <p class="text-slate-500 dark:text-slate-400 mt-2">12 Years of Proven Operational & Administrative Leadership</p>
+                </div>
 
-      const btn = document.getElementById('theme-toggle');
-      btn.addEventListener('click', function(){
-        const current = html.getAttribute('data-theme');
-        const next = current === 'dark' ? 'light' : 'dark';
-        html.setAttribute('data-theme', next);
-        localStorage.setItem('cv-theme', next);
-      });
+                <div class="relative border-l-2 border-brand-500/30 ml-4 md:ml-32 space-y-8">
+                    <!-- Job Item -->
+                    <div class="relative pl-6 md:pl-8">
+                        <!-- Timeline Dot -->
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-600 ring-4 ring-slate-100 dark:ring-slate-800"></div>
 
-      // Print
-      const printBtn = document.getElementById('print-btn');
-      if (printBtn) {
-        printBtn.addEventListener('click', function(){
-          window.print();
+                        <!-- Date Badge (Desktop Left) -->
+                        <div class="md:absolute md:-left-36 md:top-1 text-sm font-semibold text-brand-600 dark:text-brand-400 mb-2 md:mb-0">
+                            Nov 2012 – Nov 2024
+                            <span class="block text-xs font-normal text-slate-500">(12 Years)</span>
+                        </div>
+
+                        <!-- Content Card -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Senior Manager - Administration & Student Life</h3>
+                                <p class="text-brand-600 dark:text-brand-400 font-medium">BRAC University, Dhaka</p>
+                            </div>
+
+                            <ul class="space-y-3 text-slate-600 dark:text-slate-300 text-sm sm:text-base">
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
+                                    <span>Managed student clubs and societies; guided activities toward clear goals and maximized social impact while implementing UGC-recommended national events to strengthen the university's public image.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
+                                    <span>Prepared and controlled the departmental annual budget, optimized resource utilization, and maintained complete financial documentation in line with university guidelines.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
+                                    <span>Planned and executed Student Life programs, including freshmen orientation, by coordinating internal teams and external stakeholders for high-impact execution.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
+                                    <span>Provided cross-departmental support in budgeting, event logistics, and financial management across university divisions.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
+                                    <span>Led the adventure journey component of The Duke of Edinburgh's Award program covering database & budget management, student & staff coordination, venue arrangements, and communication.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Certifications -->
+        <section id="education" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <!-- Academic Background -->
+                <div class="space-y-6">
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <i data-lucide="graduation-cap" class="text-brand-600"></i> Education
+                    </h2>
+
+                    <div class="space-y-4">
+                        <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <span class="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider">2019</span>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1">Executive MBA (EMBA) - Marketing</h3>
+                            <p class="text-slate-600 dark:text-slate-400">BRAC University</p>
+                            <span class="inline-block mt-2 px-2.5 py-0.5 rounded text-xs font-semibold bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300">CGPA 3.17 / 4.00</span>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <span class="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider">2012</span>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1">Bachelor of Business Administration (BBA) - Marketing</h3>
+                            <p class="text-slate-600 dark:text-slate-400">University of Liberal Arts Bangladesh (ULAB)</p>
+                            <span class="inline-block mt-2 px-2.5 py-0.5 rounded text-xs font-semibold bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300">CGPA 3.33 / 4.00</span>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <span class="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider">2007</span>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1">Higher Secondary Certificate (HSC) - Business Studies</h3>
+                            <p class="text-slate-600 dark:text-slate-400">Dhaka Imperial College</p>
+                            <span class="inline-block mt-2 px-2.5 py-0.5 rounded text-xs font-semibold bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300">GPA 4.63 / 5.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Professional Training -->
+                <div class="space-y-6">
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <i data-lucide="award" class="text-brand-600"></i> Training & Professional Development
+                    </h2>
+
+                    <div class="space-y-4">
+                        <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">Gold Standard - Duke of Edinburgh's Award</h3>
+                                    <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">The Duke of Edinburgh's International Award, Bangladesh</p>
+                                </div>
+                                <span class="text-xs font-semibold bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 px-2 py-1 rounded">2012–2013</span>
+                            </div>
+                            <p class="text-slate-500 dark:text-slate-400 text-xs mt-3">Completed international residential project in India, broadening horizons through purposeful shared experiences.</p>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">Building the Transactional Leader</h3>
+                                    <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Leadership building & teamwork capability | BRAC University</p>
+                                </div>
+                                <span class="text-xs font-semibold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 px-2 py-1 rounded">2016</span>
+                            </div>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">Building an Effective Service Culture</h3>
+                                    <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Professional Development Training | BRAC University</p>
+                                </div>
+                                <span class="text-xs font-semibold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 px-2 py-1 rounded">2016</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Achievements & Publications -->
+        <section id="publications" class="py-16 bg-slate-100 dark:bg-slate-800/50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Achievements & Publications</h2>
+                    <p class="text-slate-500 dark:text-slate-400 mt-2">Recognitions, Social Impact & Articles</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Achievements Box -->
+                    <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                            <i data-lucide="trophy" class="text-amber-500"></i> Key Achievements
+                        </h3>
+                        <ul class="space-y-3 text-slate-600 dark:text-slate-300 text-sm">
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="star" class="w-4 h-4 text-amber-500 shrink-0 mt-1"></i>
+                                <div>
+                                    <strong>Gold Standard Award:</strong> Issued Sept 9, 2013 by The Duke of Edinburgh's International Award, Bangladesh.
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="star" class="w-4 h-4 text-amber-500 shrink-0 mt-1"></i>
+                                <div>
+                                    <strong>Founder & Advisor:</strong> BRAC University House of Talents (Student Volunteer Team).
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="star" class="w-4 h-4 text-amber-500 shrink-0 mt-1"></i>
+                                <div>
+                                    <strong>Community Volunteer:</strong> Active contribution to Project Hashi Mukh.
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="star" class="w-4 h-4 text-amber-500 shrink-0 mt-1"></i>
+                                <div>
+                                    <strong>Bronze Award:</strong> The Duke of Edinburgh's International Award (BRAC University).
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Publication Link Box -->
+                    <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm space-y-4 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                <i data-lucide="book-open" class="text-brand-600"></i> Published Writing
+                            </h3>
+                            <h4 class="text-lg font-semibold text-slate-800 dark:text-slate-200 mt-3">
+                                Emerging and Ongoing Opportunities of Artificial Intelligence (AI) and Challenges for Corporate Employees
+                            </h4>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mt-2">
+                                Published on Medium. Explores the transformative role of AI in the corporate world, highlighting competitive advantages alongside structural adoption challenges facing workforce members.
+                            </p>
+                        </div>
+                        <a href="https://medium.com/@just.shazzad/emerging-and-ongoing-opportunities-of-artificial-intelligence-ai-and-challenges-for-corporate-cc81303b728e" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 hover:bg-brand-100 font-semibold transition-colors text-sm w-full">
+                            <i data-lucide="external-link" class="w-4 h-4"></i> Read Article on Medium
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <!-- Direct Details -->
+                <div class="space-y-6">
+                    <div>
+                        <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Get In Touch</h2>
+                        <p class="text-slate-500 dark:text-slate-400 mt-2">Feel free to reach out for collaborations, leadership roles, or consultations.</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                            <div class="p-3 rounded-lg bg-brand-50 dark:bg-brand-900/30 text-brand-600">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Phone</p>
+                                <a href="tel:+8801818818886" class="font-medium text-slate-800 dark:text-slate-200 hover:text-brand-600">+880 1818-818886</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                            <div class="p-3 rounded-lg bg-brand-50 dark:bg-brand-900/30 text-brand-600">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Email</p>
+                                <a href="mailto:just.shazzad@gmail.com" class="font-medium text-slate-800 dark:text-slate-200 hover:text-brand-600">just.shazzad@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                            <div class="p-3 rounded-lg bg-brand-50 dark:bg-brand-900/30 text-brand-600">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Address</p>
+                                <p class="font-medium text-slate-800 dark:text-slate-200">47, Bonogram Road, Wari, Sutrapur, Dhaka 1203</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Form -->
+                <div class="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <form id="contactForm" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Your Name</label>
+                            <input type="text" required placeholder="John Doe" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-brand-500 outline-none transition">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Your Email</label>
+                            <input type="email" required placeholder="john@example.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-brand-500 outline-none transition">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Message</label>
+                            <textarea rows="4" required placeholder="Write your message here..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-brand-500 outline-none transition"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium shadow-md transition-all">
+                            Send Message
+                        </button>
+                    </form>
+                    <div id="formStatus" class="hidden mt-4 p-3 rounded-lg text-sm text-center"></div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-8 text-center text-slate-500 text-sm">
+        <div class="max-w-6xl mx-auto px-4">
+            <p>© 2026 Md. Shazzad Hossain. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Dark Mode Switcher
+        const themeToggleBtn = document.getElementById('themeToggle');
+        
+        // System preference default check
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
         });
-      }
-    })();
-  </script>
+
+        // Mobile Menu Toggle
+        const menuToggleBtn = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuToggleBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Contact Form Submission Handler
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            formStatus.classList.remove('hidden', 'bg-red-100', 'text-red-700');
+            formStatus.classList.add('bg-emerald-100', 'text-emerald-700', 'dark:bg-emerald-900/40', 'dark:text-emerald-300');
+            formStatus.innerText = "Thank you! Your message has been received.";
+            contactForm.reset();
+        });
+    </script>
 </body>
 </html>
