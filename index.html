@@ -851,9 +851,99 @@
                 left: 1px;
             }
         }
+
+/* ===== Premium Motion Layer ===== */
+:root{
+  --neon:#60a5fa;
+  --neon2:#a78bfa;
+  --glass:rgba(17,24,39,.58);
+}
+html{scroll-padding-top:80px}
+body{
+  background:
+    radial-gradient(circle at 15% 15%, rgba(59,130,246,.12), transparent 28%),
+    radial-gradient(circle at 85% 35%, rgba(167,139,250,.10), transparent 30%),
+    var(--bg-base);
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.18;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:44px 44px;
+  mask-image:linear-gradient(to bottom,black,transparent 85%);
+}
+.navbar{background:rgba(11,15,25,.62);box-shadow:0 8px 30px rgba(0,0,0,.16)}
+.navbar.scrolled{background:rgba(11,15,25,.94);box-shadow:0 10px 35px rgba(0,0,0,.35)}
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--primary),var(--neon2));z-index:2000}
+.hero-section{position:relative}
+.hero-section::before,.hero-section::after{
+  content:"";position:absolute;border-radius:50%;filter:blur(2px);pointer-events:none;z-index:-1
+}
+.hero-section::before{width:260px;height:260px;background:rgba(59,130,246,.12);left:-120px;top:18%;animation:orb 9s ease-in-out infinite}
+.hero-section::after{width:220px;height:220px;background:rgba(167,139,250,.10);right:-80px;bottom:10%;animation:orb 11s ease-in-out infinite reverse}
+@keyframes orb{50%{transform:translate(35px,-25px) scale(1.08)}}
+.hero-title{animation:heroIn .9s cubic-bezier(.2,.8,.2,1) both}
+.hero-subtitle{animation:heroIn .9s .12s both}
+.hero-description{animation:heroIn .9s .22s both}
+.hero-actions{animation:heroIn .9s .32s both}
+.badge-status{animation:heroIn .8s both}
+@keyframes heroIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.highlight{background-size:200% auto;animation:gradientShift 4s linear infinite}
+@keyframes gradientShift{to{background-position:200% center}}
+.profile-frame{animation:floatProfile 5s ease-in-out infinite;box-shadow:0 0 0 1px rgba(96,165,250,.08),0 25px 70px rgba(0,0,0,.5)}
+@keyframes floatProfile{50%{transform:translateY(-9px)}}
+.stat-card-float{animation:floatCard 4s ease-in-out infinite}
+.stat-card-2{animation-delay:1.2s}
+@keyframes floatCard{50%{transform:translateY(-8px)}}
+.competency-card,.award-card,.edu-card,.timeline-content,.publication-card,.contact-container{
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.competency-card:hover,.award-card:hover,.edu-card:hover{
+  transform:translateY(-7px) scale(1.01);
+}
+.competency-card::after,.award-card::after,.edu-card::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.07),transparent 80%);
+  transform:translateX(-120%);transition:transform .7s ease;
+}
+.competency-card:hover::after,.award-card:hover::after,.edu-card:hover::after{transform:translateX(120%)}
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+.section-header{position:relative}
+.section-header::after{
+  content:"";display:block;width:55px;height:3px;margin-top:14px;border-radius:10px;
+  background:linear-gradient(90deg,var(--primary),var(--neon2));
+}
+.section-title{letter-spacing:-.8px}
+.timeline-dot{animation:dotPulse 2.2s ease-in-out infinite}
+@keyframes dotPulse{50%{box-shadow:0 0 0 7px rgba(59,130,246,.08),0 0 22px rgba(59,130,246,.45)}}
+.btn{position:relative;overflow:hidden}
+.btn::before{content:"";position:absolute;top:0;left:-120%;width:80%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);transform:skewX(-20deg);transition:left .55s ease}
+.btn:hover::before{left:140%}
+.social-float{
+  position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;
+  display:grid;place-items:center;text-decoration:none;color:white;background:rgba(31,41,55,.8);
+  border:1px solid var(--border-color);backdrop-filter:blur(10px);z-index:900;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);transition:.3s
+}
+.social-float:hover{transform:translateY(-4px);color:var(--primary);border-color:var(--border-hover)}
+#typed-role{display:inline-block;min-width:10px}
+.cursor{display:inline-block;margin-left:3px;color:var(--primary);animation:blink .8s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
+@media(max-width:768px){
+  .social-float{right:14px;bottom:14px}
+}
+
     </style>
 </head>
 <body>
+    <div class="scroll-progress" id="scrollProgress"></div>
 
     <!-- Navigation Header -->
     <nav class="navbar">
@@ -940,22 +1030,22 @@
             <h2 class="section-title">Areas of Expertise</h2>
         </div>
         <div class="competencies-grid">
-            <div class="competency-card">
+            <div class="competency-card reveal">
                 <div class="competency-icon"><i class="fa-solid fa-building-user"></i></div>
                 <h3 class="competency-title">Administration & Operations</h3>
                 <p style="color: var(--text-muted); font-size: 0.9rem;">Comprehensive office management, administrative workflow optimization, policy implementation, and departmental leadership.</p>
             </div>
-            <div class="competency-card">
+            <div class="competency-card reveal">
                 <div class="competency-icon"><i class="fa-solid fa-users"></i></div>
                 <h3 class="competency-title">Student Life & Club Oversight</h3>
                 <p style="color: var(--text-muted); font-size: 0.9rem;">Guiding student clubs and societies toward strategic goals, social impact programs, and UGC national initiatives.</p>
             </div>
-            <div class="competency-card">
+            <div class="competency-card reveal">
                 <div class="competency-icon"><i class="fa-solid fa-coins"></i></div>
                 <h3 class="competency-title">Budgeting & Financial Oversight</h3>
                 <p style="color: var(--text-muted); font-size: 0.9rem;">Annual budget formulation, financial transaction controls, resource optimization, and complete audit documentation.</p>
             </div>
-            <div class="competency-card">
+            <div class="competency-card reveal">
                 <div class="competency-icon"><i class="fa-solid fa-calendar-check"></i></div>
                 <h3 class="competency-title">Event Logistics & Execution</h3>
                 <p style="color: var(--text-muted); font-size: 0.9rem;">Planning and executing large-scale events, freshmen orientation, vendor management, and cross-departmental coordination.</p>
@@ -972,7 +1062,7 @@
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
-                <div class="timeline-content">
+                <div class="timeline-content reveal">
                     <div class="timeline-header">
                         <div>
                             <h3 class="job-title">Senior Manager – Administration & Student Life</h3>
@@ -999,28 +1089,28 @@
             <h2 class="section-title">Honors & Volunteer Leadership</h2>
         </div>
         <div class="awards-grid">
-            <div class="award-card">
+            <div class="award-card reveal">
                 <div class="award-icon"><i class="fa-solid fa-medal"></i></div>
                 <div class="award-details">
                     <h3>Gold Standard Award</h3>
                     <p>The Duke of Edinburgh's International Award, Bangladesh (Issued Sept 2013). Completed the Gold Residential Project in India, fostering shared leadership and cross-cultural impact.</p>
                 </div>
             </div>
-            <div class="award-card">
+            <div class="award-card reveal">
                 <div class="award-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
                 <div class="award-details">
                     <h3>Founder & Advisor</h3>
                     <p>BRAC University House of Talents (Student Volunteer Team). Established student leadership frameworks for social service and campus development.</p>
                 </div>
             </div>
-            <div class="award-card">
+            <div class="award-card reveal">
                 <div class="award-icon"><i class="fa-solid fa-heart-pulse"></i></div>
                 <div class="award-details">
                     <h3>Community Volunteer</h3>
                     <p>Project Hashi Mukh — Actively participated in community empowerment and social welfare initiatives across Dhaka.</p>
                 </div>
             </div>
-            <div class="award-card">
+            <div class="award-card reveal">
                 <div class="award-icon"><i class="fa-solid fa-award"></i></div>
                 <div class="award-details">
                     <h3>Bronze Award</h3>
@@ -1037,19 +1127,19 @@
             <h2 class="section-title">Education & Credentials</h2>
         </div>
         <div class="education-grid">
-            <div class="edu-card">
+            <div class="edu-card reveal">
                 <div class="edu-year">2019</div>
                 <h3 class="edu-degree">Executive MBA (EMBA)</h3>
                 <div class="edu-institution">BRAC University</div>
                 <div class="edu-result">Major in Marketing | CGPA 3.17 / 4.00</div>
             </div>
-            <div class="edu-card">
+            <div class="edu-card reveal">
                 <div class="edu-year">2012</div>
                 <h3 class="edu-degree">Bachelor of Business Administration (BBA)</h3>
                 <div class="edu-institution">University of Liberal Arts Bangladesh (ULAB)</div>
                 <div class="edu-result">Major in Marketing | CGPA 3.33 / 4.00</div>
             </div>
-            <div class="edu-card">
+            <div class="edu-card reveal">
                 <div class="edu-year">2007</div>
                 <h3 class="edu-degree">Higher Secondary Certificate (HSC)</h3>
                 <div class="edu-institution">Dhaka Imperial College</div>
@@ -1064,7 +1154,7 @@
             <span class="section-subtitle">Thought Leadership</span>
             <h2 class="section-title">Published Work</h2>
         </div>
-        <div class="publication-card">
+        <div class="publication-card reveal">
             <div>
                 <span class="pub-tag">Featured Article on Medium</span>
                 <h3 class="pub-title">Emerging and Ongoing Opportunities of Artificial Intelligence (AI) and Challenges for Corporate Employees</h3>
@@ -1084,7 +1174,7 @@
             <span class="section-subtitle">Connect</span>
             <h2 class="section-title">Get In Touch</h2>
         </div>
-        <div class="contact-container">
+        <div class="contact-container reveal">
             <div class="contact-info">
                 <div class="contact-item">
                     <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
@@ -1146,6 +1236,8 @@
     <script>
         const mobileToggle = document.getElementById('mobileToggle');
         const navLinks = document.getElementById('navLinks');
+        const navbar = document.querySelector('.navbar');
+        const progress = document.getElementById('scrollProgress');
 
         mobileToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
@@ -1159,17 +1251,80 @@
             }
         });
 
-        // Close menu on link click
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 const icon = mobileToggle.querySelector('i');
-                if (icon) {
-                    icon.classList.remove('fa-xmark');
-                    icon.classList.add('fa-bars');
-                }
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
             });
         });
+
+        // Scroll progress + glassy navbar.
+        window.addEventListener('scroll', () => {
+            const max = document.documentElement.scrollHeight - window.innerHeight;
+            progress.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+            navbar.classList.toggle('scrolled', window.scrollY > 20);
+        }, {passive:true});
+
+        // Reveal sections/cards as they enter the viewport.
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {threshold:0.12});
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Lightweight typing animation — no external library required.
+        const roles = [
+            'Higher Education Administration',
+            'Event Management',
+            'Student Life Governance',
+            'Operational Leadership'
+        ];
+        const typed = document.getElementById('typed-role');
+        let roleIndex = 0, charIndex = 0, deleting = false;
+
+        function typeRole(){
+            const word = roles[roleIndex];
+            if (!deleting) {
+                typed.textContent = word.slice(0, ++charIndex);
+                if (charIndex === word.length) {
+                    deleting = true;
+                    setTimeout(typeRole, 1700);
+                    return;
+                }
+            } else {
+                typed.textContent = word.slice(0, --charIndex);
+                if (charIndex === 0) {
+                    deleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                }
+            }
+            setTimeout(typeRole, deleting ? 45 : 75);
+        }
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) typeRole();
+
+        // Subtle 3D hover for desktop cards.
+        if (window.matchMedia('(pointer:fine)').matches) {
+            document.querySelectorAll('.competency-card,.award-card,.edu-card').forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const r = card.getBoundingClientRect();
+                    const x = (e.clientX - r.left) / r.width - .5;
+                    const y = (e.clientY - r.top) / r.height - .5;
+                    card.style.transform = `perspective(700px) rotateX(${-y*3}deg) rotateY(${x*3}deg) translateY(-6px)`;
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                });
+            });
+        }
     </script>
+    <a href="#about" class="social-float" aria-label="Back to top" title="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
 </body>
 </html>
