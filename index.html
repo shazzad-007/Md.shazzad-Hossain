@@ -933,7 +933,7 @@ body::before{
 .cursor{display:inline-block;margin-left:3px;color:var(--primary);animation:blink .8s step-end infinite}
 @keyframes blink{50%{opacity:0}}
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  ,::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .reveal{opacity:1;transform:none}
 }
 @media(max-width:768px){
@@ -1315,7 +1315,7 @@ body::before{
                     const r = card.getBoundingClientRect();
                     const x = (e.clientX - r.left) / r.width - .5;
                     const y = (e.clientY - r.top) / r.height - .5;
-                    card.style.transform = `perspective(700px) rotateX(${-y*3}deg) rotateY(${x*3}deg) translateY(-6px)`;
+                    card.style.transform = perspective(700px) rotateX(${-y*3}deg) rotateY(${x*3}deg) translateY(-6px);
                 });
                 card.addEventListener('mouseleave', () => {
                     card.style.transform = '';
