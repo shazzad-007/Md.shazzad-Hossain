@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md. Shazzad Hossain - Professional Portfolio</title>
+    <title>Md. Shazzad Hossain | Professional Portfolio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
+                        navy: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                        },
                         brand: {
-                            50: '#f0f7ff',
-                            100: '#e0effe',
-                            500: '#0284c7',
-                            600: '#0369a1',
-                            700: '#035487',
-                            900: '#0c4a6e',
+                            blue: '#2563eb',
+                            cyan: '#38bdf8',
+                            light: '#60a5fa'
                         }
                     },
                     fontFamily: {
@@ -30,506 +33,556 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
+        html {
+            scroll-behavior: smooth;
         }
-        .dark .glass-card {
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(12px);
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .avatar-glow {
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.25);
         }
     </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-blue selection:text-white">
 
-    <!-- Navigation -->
-    <header class="sticky top-0 z-50 glass-card border-b border-slate-200 dark:border-slate-800 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href="#hero" class="font-bold text-xl tracking-tight bg-gradient-to-r from-brand-600 to-indigo-600 bg-clip-text text-transparent">
-                SHAZZAD.
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#hero" class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+                <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-cyan to-brand-blue flex items-center justify-center text-slate-950 font-black text-base">SH</span>
+                <span>Md. Shazzad Hossain</span>
             </a>
-
+            
             <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">About</a>
-                <a href="#competencies" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">Competencies</a>
-                <a href="#experience" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">Experience</a>
-                <a href="#education" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">Education & Awards</a>
-                <a href="#publications" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">Publications</a>
-                <a href="#contact" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">Contact</a>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
+                <a href="#about" class="hover:text-brand-cyan transition-colors">About</a>
+                <a href="#competencies" class="hover:text-brand-cyan transition-colors">Skills</a>
+                <a href="#experience" class="hover:text-brand-cyan transition-colors">Experience</a>
+                <a href="#education" class="hover:text-brand-cyan transition-colors">Education</a>
+                <a href="#awards" class="hover:text-brand-cyan transition-colors">Awards</a>
+                <a href="#publication" class="hover:text-brand-cyan transition-colors">Publication</a>
+                <a href="#contact" class="hover:text-brand-cyan transition-colors">Contact</a>
             </nav>
 
-            <div class="flex items-center space-x-4">
-                <!-- Theme Toggle Button -->
-                <button id="themeToggle" aria-label="Toggle dark mode" class="p-2 rounded-full text-slate-500 hover:bg-slate-200 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors">
-                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
-                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
-                </button>
-
-                <!-- Mobile menu toggle -->
-                <button id="menuToggle" aria-label="Toggle Navigation Menu" class="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-            </div>
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-btn" class="md:hidden text-slate-300 hover:text-white text-2xl focus:outline-none" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
 
-        <!-- Mobile Nav Menu -->
-        <div id="mobileMenu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 px-4 pt-2 pb-4 space-y-3">
-            <a href="#about" class="block py-2 text-base font-medium text-slate-700 dark:text-slate-200 hover:text-brand-600">About</a>
-            <a href="#competencies" class="block py-2 text-base font-medium text-slate-700 dark:text-slate-200 hover:text-brand-600">Competencies</a>
-            <a href="#experience" class="block py-2 text-base font-medium text-slate-700 dark:text-slate-200 hover:text-brand-600">Experience</a>
-            <a href="#education" class="block py-2 text-base font-medium text-slate-700 dark:text-slate-200 hover:text-brand-600">Education & Awards</a>
-            <a href="#publications" class="block py-2 text-base font-medium text-slate-700 dark:text-slate-200 hover:text-brand-600">Publications</a>
-            <a href="#contact" class="block py-2 text-base font-medium text-slate-700 dark:text-slate-200 hover:text-brand-600">Contact</a>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 border-b border-slate-800 px-6 py-4 space-y-3">
+            <a href="#about" class="block text-slate-300 hover:text-brand-cyan transition-colors py-1">About</a>
+            <a href="#competencies" class="block text-slate-300 hover:text-brand-cyan transition-colors py-1">Skills</a>
+            <a href="#experience" class="block text-slate-300 hover:text-brand-cyan transition-colors py-1">Experience</a>
+            <a href="#education" class="block text-slate-300 hover:text-brand-cyan transition-colors py-1">Education</a>
+            <a href="#awards" class="block text-slate-300 hover:text-brand-cyan transition-colors py-1">Awards</a>
+            <a href="#publication" class="block text-slate-300 hover:text-brand-cyan transition-colors py-1">Publication</a>
+            <a href="#contact" class="block text-slate-300 hover:text-brand-cyan transition-colors py-1">Contact</a>
         </div>
     </header>
 
-    <main class="flex-grow">
+    <main class="pt-20">
         <!-- Hero Section -->
-        <section id="hero" class="py-16 md:py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
-                <div class="flex-1 space-y-6 text-center md:text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-brand-50 text-brand-700 dark:bg-brand-900/40 dark:text-brand-300 border border-brand-200 dark:border-brand-800">
-                        <i data-lucide="award" class="w-4 h-4"></i> Duke of Edinburgh Gold Awardee
+        <section id="hero" class="min-h-[90vh] flex items-center relative overflow-hidden py-16 lg:py-24">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/20 via-slate-950 to-slate-950 -z-10"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Text Info -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/60 text-brand-cyan text-sm font-medium">
+                            <i class="fa-solid fa-location-dot"></i> Dhaka, Bangladesh
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                            MD. SHAZZAD HOSSAIN
+                        </h1>
+                        <p class="text-xl sm:text-2xl font-semibold gradient-text">
+                            Senior Manager | Administration, Student Life & Event Management
+                        </p>
+                        <p class="text-slate-400 text-base sm:text-lg max-w-2xl leading-relaxed mx-auto lg:mx-0">
+                            Over 12 years of proven administrative leadership in higher education, institutional operations, student life, budget control, and large-scale event management.
+                        </p>
+                        
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+                            <a href="#contact" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-brand-blue to-cyan-500 text-white font-semibold shadow-lg shadow-blue-500/25 hover:shadow-cyan-500/40 hover:scale-[1.02] transition-all">
+                                Get In Touch
+                            </a>
+                            <a href="https://linkedin.com/in/shazzad-hossain-8b422568" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl bg-slate-800 border border-slate-700/80 text-slate-200 font-semibold hover:bg-slate-700 hover:text-white transition-all flex items-center gap-2">
+                                <i class="fa-brands fa-linkedin text-brand-cyan text-lg"></i> LinkedIn
+                            </a>
+                        </div>
                     </div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-                        Md. Shazzad Hossain
-                    </h1>
-                    <p class="text-xl font-medium text-brand-600 dark:text-brand-400">
-                        Senior Manager | Administration, Student Life & Event Management
+
+                    <!-- Clean Placeholder Avatar Frame -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-3xl bg-slate-900 border-2 border-brand-cyan/40 p-3 avatar-glow flex items-center justify-center">
+                            <div class="w-full h-full rounded-2xl bg-gradient-to-b from-slate-800 to-slate-950 flex flex-col items-center justify-center overflow-hidden relative">
+                                <!-- Background grid texture -->
+                                <div class="absolute inset-0 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px] opacity-10"></div>
+                                
+                                <!-- User Vector SVG Placeholder -->
+                                <svg class="w-36 h-36 sm:w-44 sm:h-44 text-slate-500/80 relative z-10" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm0 14c-2.03 0-4.43-.82-6.14-2.88C7.55 15.8 9.68 15 12 15s4.45.8 6.14 2.12C16.43 19.18 14.03 20 12 20z"/>
+                                </svg>
+                                
+                                <span class="relative z-10 mt-2 text-xs uppercase tracking-widest text-slate-400 font-semibold bg-slate-900/80 px-3 py-1 rounded-full border border-slate-700">
+                                    Md. Shazzad Hossain
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-slate-900/50 border-y border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center mb-12">
+                    <h2 class="text-3xl font-bold text-white mb-4">Professional Summary</h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-brand-cyan to-brand-blue mx-auto rounded-full"></div>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 sm:p-10 shadow-xl max-w-4xl mx-auto">
+                    <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                        Results-driven professional with over 12 years of experience in higher-education administration, student life, event management, logistics, and budget oversight. Proven track record in orchestrating large-scale institutional projects, managing operational workflows, and fostering strategic stakeholder collaborations.
                     </p>
-                    <p class="text-slate-600 dark:text-slate-300 max-w-2xl text-base sm:text-lg leading-relaxed">
-                        Results-driven higher education leader with over 12 years of experience in administrative oversight, budget planning, student life development, and large-scale campus event execution.
-                    </p>
-
-                    <!-- Contact & CTA Buttons -->
-                    <div class="flex flex-wrap gap-4 justify-center md:justify-start pt-2">
-                        <a href="mailto:just.shazzad@gmail.com" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium shadow-lg shadow-brand-500/20 transition-all hover:scale-[1.02]">
-                            <i data-lucide="mail" class="w-4 h-4"></i> Get in Touch
-                        </a>
-                        <button onclick="window.print()" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-medium transition-all hover:scale-[1.02]">
-                            <i data-lucide="download" class="w-4 h-4"></i> Print / Save Resume
-                        </button>
-                    </div>
-
-                    <!-- Quick Links -->
-                    <div class="flex items-center justify-center md:justify-start gap-6 pt-4 text-slate-500 dark:text-slate-400 text-sm">
-                        <a href="https://linkedin.com/in/shazzad-hossain-8b422568" target="_blank" rel="noopener noreferrer" class="hover:text-brand-600 dark:hover:text-brand-400 flex items-center gap-1">
-                            <i data-lucide="linkedin" class="w-4 h-4"></i> LinkedIn
-                        </a>
-                        <a href="tel:+8801818818886" class="hover:text-brand-600 dark:hover:text-brand-400 flex items-center gap-1">
-                            <i data-lucide="phone" class="w-4 h-4"></i> +880 1818-818886
-                        </a>
-                        <span class="flex items-center gap-1">
-                            <i data-lucide="map-pin" class="w-4 h-4"></i> Dhaka, Bangladesh
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Avatar Box -->
-                <div class="relative group">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-brand-600 to-indigo-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-300"></div>
-                    <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 bg-slate-200">
-                        <img src="profile.jpg" alt="Md. Shazzad Hossain" class="profile-img">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Professional Summary -->
-        <section id="about" class="py-12 bg-slate-100 dark:bg-slate-800/50">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="p-8 rounded-2xl glass-card border border-slate-200 dark:border-slate-700 shadow-sm">
-                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2 text-slate-900 dark:text-white">
-                        <i data-lucide="user" class="text-brand-600"></i> Professional Profile
-                    </h2>
-                    <p class="text-slate-700 dark:text-slate-300 leading-relaxed text-lg">
-                        Results-driven professional with over 12 years of experience in higher-education administration, student life, event management, logistics, and budget oversight. Proven ability to lead student clubs and societies, manage departmental budgets, coordinate large-scale campus events, and deliver measurable social impact. Holder of the prestigious Gold Standard of The Duke of Edinburgh's International Award. Seeking a senior-level opportunity to apply strong leadership, financial, and stakeholder-management skills in education, administration, or event-driven organizations.
+                    <p class="text-slate-300 text-lg leading-relaxed">
+                        Adept at leadership development, cross-department coordination, and implementing structured administrative procedures to drive organizational success and enrich university campus communities.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Core Competencies -->
-        <section id="competencies" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Core Competencies</h2>
-                <p class="text-slate-500 dark:text-slate-400 mt-2">Key leadership & functional capabilities developed over 12+ years</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Competency 1 -->
-                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-900/30 text-brand-600 flex items-center justify-center mb-4">
-                        <i data-lucide="building-2" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Administration & Office Management</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm">Comprehensive office supervision, policy implementation, cross-departmental coordination, and operational workflow enhancement.</p>
+        <!-- Core Competencies Section -->
+        <section id="competencies" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="text-3xl font-bold text-white mb-4">Core Competencies</h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-brand-cyan to-brand-blue mx-auto rounded-full"></div>
                 </div>
 
-                <!-- Competency 2 -->
-                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 flex items-center justify-center mb-4">
-                        <i data-lucide="users" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Student Life & Club Oversight</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm">Managing student organizations, advisory mentoring, encouraging engagement, and guiding activities toward measurable social impact.</p>
-                </div>
-
-                <!-- Competency 3 -->
-                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 flex items-center justify-center mb-4">
-                        <i data-lucide="truck" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Logistics & Vendor Coordination</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm">End-to-end event logistics, vendor negotiations, venue management, and resource allocation for major campus functions.</p>
-                </div>
-
-                <!-- Competency 4 -->
-                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-900/30 text-amber-600 flex items-center justify-center mb-4">
-                        <i data-lucide="wallet" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Annual Budgeting & Finance</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm">Preparing and controlling departmental annual budgets, transaction documentation, financial reporting, and cost optimization.</p>
-                </div>
-
-                <!-- Competency 5 -->
-                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 rounded-xl bg-purple-50 dark:bg-purple-900/30 text-purple-600 flex items-center justify-center mb-4">
-                        <i data-lucide="network" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Stakeholder Liaison</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm">Building collaborative relationships between internal administrative teams, external partners, UGC, and governmental authorities.</p>
-                </div>
-
-                <!-- Competency 6 -->
-                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 rounded-xl bg-rose-50 dark:bg-rose-900/30 text-rose-600 flex items-center justify-center mb-4">
-                        <i data-lucide="award" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Leadership & Development</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm">Mentoring student leaders, fostering volunteerism, organizing residential projects, and cultivating an effective service culture.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Professional Experience -->
-        <section id="experience" class="py-16 bg-slate-100 dark:bg-slate-800/50">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Professional Experience</h2>
-                    <p class="text-slate-500 dark:text-slate-400 mt-2">12 Years of Proven Operational & Administrative Leadership</p>
-                </div>
-
-                <div class="relative border-l-2 border-brand-500/30 ml-4 md:ml-32 space-y-8">
-                    <!-- Job Item -->
-                    <div class="relative pl-6 md:pl-8">
-                        <!-- Timeline Dot -->
-                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-600 ring-4 ring-slate-100 dark:ring-slate-800"></div>
-
-                        <!-- Date Badge (Desktop Left) -->
-                        <div class="md:absolute md:-left-36 md:top-1 text-sm font-semibold text-brand-600 dark:text-brand-400 mb-2 md:mb-0">
-                            Nov 2012 – Nov 2024
-                            <span class="block text-xs font-normal text-slate-500">(12 Years)</span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Skill Card 1 -->
+                    <div class="p-6 bg-slate-900/80 border border-slate-800 hover:border-brand-cyan/50 rounded-2xl transition-all hover:-translate-y-1 group">
+                        <div class="w-12 h-12 rounded-xl bg-brand-blue/10 text-brand-cyan flex items-center justify-center text-xl mb-4 group-hover:bg-brand-blue group-hover:text-white transition-all">
+                            <i class="fa-solid fa-briefcase"></i>
                         </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Administration & Office Management</h3>
+                        <p class="text-slate-400 text-sm">Efficient oversight of daily operations, workflow standardization, and facility processes.</p>
+                    </div>
 
-                        <!-- Content Card -->
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Senior Manager - Administration & Student Life</h3>
-                                <p class="text-brand-600 dark:text-brand-400 font-medium">BRAC University, Dhaka</p>
-                            </div>
-
-                            <ul class="space-y-3 text-slate-600 dark:text-slate-300 text-sm sm:text-base">
-                                <li class="flex items-start gap-3">
-                                    <i data-lucide="check-circle" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
-                                    <span>Managed student clubs and societies; guided activities toward clear goals and maximized social impact while implementing UGC-recommended national events to strengthen the university's public image.</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i data-lucide="check-circle" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
-                                    <span>Prepared and controlled the departmental annual budget, optimized resource utilization, and maintained complete financial documentation in line with university guidelines.</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i data-lucide="check-circle" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
-                                    <span>Planned and executed Student Life programs, including freshmen orientation, by coordinating internal teams and external stakeholders for high-impact execution.</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i data-lucide="check-circle" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
-                                    <span>Provided cross-departmental support in budgeting, event logistics, and financial management across university divisions.</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i data-lucide="check-circle" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
-                                    <span>Led the adventure journey component of The Duke of Edinburgh's Award program covering database & budget management, student & staff coordination, venue arrangements, and communication.</span>
-                                </li>
-                            </ul>
+                    <!-- Skill Card 2 -->
+                    <div class="p-6 bg-slate-900/80 border border-slate-800 hover:border-brand-cyan/50 rounded-2xl transition-all hover:-translate-y-1 group">
+                        <div class="w-12 h-12 rounded-xl bg-brand-blue/10 text-brand-cyan flex items-center justify-center text-xl mb-4 group-hover:bg-brand-blue group-hover:text-white transition-all">
+                            <i class="fa-solid fa-people-roof"></i>
                         </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Student Life & Club Oversight</h3>
+                        <p class="text-slate-400 text-sm">Managing co-curricular student organizations, student governance, and campus engagement.</p>
+                    </div>
+
+                    <!-- Skill Card 3 -->
+                    <div class="p-6 bg-slate-900/80 border border-slate-800 hover:border-brand-cyan/50 rounded-2xl transition-all hover:-translate-y-1 group">
+                        <div class="w-12 h-12 rounded-xl bg-brand-blue/10 text-brand-cyan flex items-center justify-center text-xl mb-4 group-hover:bg-brand-blue group-hover:text-white transition-all">
+                            <i class="fa-solid fa-truck-ramp-box"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Logistics & Vendor Coordination</h3>
+                        <p class="text-slate-400 text-sm">End-to-end supply procurement, third-party vendor management, and event setup execution.</p>
+                    </div>
+
+                    <!-- Skill Card 4 -->
+                    <div class="p-6 bg-slate-900/80 border border-slate-800 hover:border-brand-cyan/50 rounded-2xl transition-all hover:-translate-y-1 group">
+                        <div class="w-12 h-12 rounded-xl bg-brand-blue/10 text-brand-cyan flex items-center justify-center text-xl mb-4 group-hover:bg-brand-blue group-hover:text-white transition-all">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Stakeholder & Liaison</h3>
+                        <p class="text-slate-400 text-sm">Cross-departmental alignment, regulatory compliance, and institutional collaboration.</p>
+                    </div>
+
+                    <!-- Skill Card 5 -->
+                    <div class="p-6 bg-slate-900/80 border border-slate-800 hover:border-brand-cyan/50 rounded-2xl transition-all hover:-translate-y-1 group">
+                        <div class="w-12 h-12 rounded-xl bg-brand-blue/10 text-brand-cyan flex items-center justify-center text-xl mb-4 group-hover:bg-brand-blue group-hover:text-white transition-all">
+                            <i class="fa-solid fa-users-gear"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Leadership & Development</h3>
+                        <p class="text-slate-400 text-sm">Team mentorship, transactional leadership, and strategic execution of programs.</p>
+                    </div>
+
+                    <!-- Skill Card 6 -->
+                    <div class="p-6 bg-slate-900/80 border border-slate-800 hover:border-brand-cyan/50 rounded-2xl transition-all hover:-translate-y-1 group">
+                        <div class="w-12 h-12 rounded-xl bg-brand-blue/10 text-brand-cyan flex items-center justify-center text-xl mb-4 group-hover:bg-brand-blue group-hover:text-white transition-all">
+                            <i class="fa-solid fa-calculator"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Budget Preparation & Control</h3>
+                        <p class="text-slate-400 text-sm">Annual financial planning, cost allocation, expenditure monitoring, and audits.</p>
+                    </div>
+
+                    <!-- Skill Card 7 -->
+                    <div class="p-6 bg-slate-900/80 border border-slate-800 hover:border-brand-cyan/50 rounded-2xl transition-all hover:-translate-y-1 group">
+                        <div class="w-12 h-12 rounded-xl bg-brand-blue/10 text-brand-cyan flex items-center justify-center text-xl mb-4 group-hover:bg-brand-blue group-hover:text-white transition-all">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Event Planning & Execution</h3>
+                        <p class="text-slate-400 text-sm">Orchestrating high-profile convocations, UGC events, orientations, and national awards.</p>
+                    </div>
+
+                    <!-- Skill Card 8 -->
+                    <div class="p-6 bg-slate-900/80 border border-slate-800 hover:border-brand-cyan/50 rounded-2xl transition-all hover:-translate-y-1 group">
+                        <div class="w-12 h-12 rounded-xl bg-brand-blue/10 text-brand-cyan flex items-center justify-center text-xl mb-4 group-hover:bg-brand-blue group-hover:text-white transition-all">
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Financial Transactions</h3>
+                        <p class="text-slate-400 text-sm">Reconciliation, operational expense reporting, and financial compliance tracking.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Education & Certifications -->
-        <section id="education" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                
-                <!-- Academic Background -->
-                <div class="space-y-6">
-                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                        <i data-lucide="graduation-cap" class="text-brand-600"></i> Education
-                    </h2>
-
-                    <div class="space-y-4">
-                        <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
-                            <span class="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider">2019</span>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1">Executive MBA (EMBA) - Marketing</h3>
-                            <p class="text-slate-600 dark:text-slate-400">BRAC University</p>
-                            <span class="inline-block mt-2 px-2.5 py-0.5 rounded text-xs font-semibold bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300">CGPA 3.17 / 4.00</span>
-                        </div>
-
-                        <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
-                            <span class="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider">2012</span>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1">Bachelor of Business Administration (BBA) - Marketing</h3>
-                            <p class="text-slate-600 dark:text-slate-400">University of Liberal Arts Bangladesh (ULAB)</p>
-                            <span class="inline-block mt-2 px-2.5 py-0.5 rounded text-xs font-semibold bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300">CGPA 3.33 / 4.00</span>
-                        </div>
-
-                        <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
-                            <span class="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider">2007</span>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1">Higher Secondary Certificate (HSC) - Business Studies</h3>
-                            <p class="text-slate-600 dark:text-slate-400">Dhaka Imperial College</p>
-                            <span class="inline-block mt-2 px-2.5 py-0.5 rounded text-xs font-semibold bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300">GPA 4.63 / 5.00</span>
-                        </div>
-                    </div>
+        <!-- Professional Experience Section -->
+        <section id="experience" class="py-20 bg-slate-900/50 border-y border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="text-3xl font-bold text-white mb-4">Professional Experience</h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-brand-cyan to-brand-blue mx-auto rounded-full"></div>
                 </div>
 
-                <!-- Professional Training -->
-                <div class="space-y-6">
-                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                        <i data-lucide="award" class="text-brand-600"></i> Training & Professional Development
-                    </h2>
-
-                    <div class="space-y-4">
-                        <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">Gold Standard - Duke of Edinburgh's Award</h3>
-                                    <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">The Duke of Edinburgh's International Award, Bangladesh</p>
+                <div class="max-w-4xl mx-auto">
+                    <!-- Timeline Card -->
+                    <div class="relative pl-8 border-l-2 border-brand-blue space-y-12">
+                        
+                        <div class="relative group">
+                            <!-- Timeline node dot -->
+                            <div class="absolute -left-[41px] top-1.5 w-5 h-5 rounded-full bg-slate-950 border-4 border-brand-cyan"></div>
+                            
+                            <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-lg">
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                                    <div>
+                                        <h3 class="text-xl font-bold text-white">Senior Manager - Administration & Student Life</h3>
+                                        <p class="text-brand-cyan font-semibold">BRAC University, Dhaka, Bangladesh</p>
+                                    </div>
+                                    <span class="px-3 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/30 text-brand-cyan text-sm font-medium">
+                                        Nov 2012 – Nov 2024 (12 Years)
+                                    </span>
                                 </div>
-                                <span class="text-xs font-semibold bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 px-2 py-1 rounded">2012–2013</span>
+
+                                <ul class="space-y-3 text-slate-300 text-sm sm:text-base">
+                                    <li class="flex items-start gap-3">
+                                        <i class="fa-solid fa-circle-check text-brand-cyan mt-1 text-sm shrink-0"></i>
+                                        <span>Directly supervised student life programs, overseeing co-curricular clubs, student orientation programs, and campus leadership initiatives.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i class="fa-solid fa-circle-check text-brand-cyan mt-1 text-sm shrink-0"></i>
+                                        <span>Managed annual budget allocation, financial transactions, vendor contracts, and operational reporting for major campus events.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i class="fa-solid fa-circle-check text-brand-cyan mt-1 text-sm shrink-0"></i>
+                                        <span>Spearheaded University Grants Commission (UGC) compliance events, institutional ceremonies, and inter-university summits.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i class="fa-solid fa-circle-check text-brand-cyan mt-1 text-sm shrink-0"></i>
+                                        <span>Served as key coordinator for The Duke of Edinburgh's International Award program at BRAC University.</span>
+                                    </li>
+                                </ul>
                             </div>
-                            <p class="text-slate-500 dark:text-slate-400 text-xs mt-3">Completed international residential project in India, broadening horizons through purposeful shared experiences.</p>
                         </div>
 
-                        <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">Building the Transactional Leader</h3>
-                                    <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Leadership building & teamwork capability | BRAC University</p>
-                                </div>
-                                <span class="text-xs font-semibold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 px-2 py-1 rounded">2016</span>
-                            </div>
-                        </div>
-
-                        <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">Building an Effective Service Culture</h3>
-                                    <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Professional Development Training | BRAC University</p>
-                                </div>
-                                <span class="text-xs font-semibold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 px-2 py-1 rounded">2016</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- Achievements & Publications -->
-        <section id="publications" class="py-16 bg-slate-100 dark:bg-slate-800/50">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Achievements & Publications</h2>
-                    <p class="text-slate-500 dark:text-slate-400 mt-2">Recognitions, Social Impact & Articles</p>
+        <!-- Education Section -->
+        <section id="education" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="text-3xl font-bold text-white mb-4">Education & Academic Background</h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-brand-cyan to-brand-blue mx-auto rounded-full"></div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Achievements Box -->
-                    <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                            <i data-lucide="trophy" class="text-amber-500"></i> Key Achievements
-                        </h3>
-                        <ul class="space-y-3 text-slate-600 dark:text-slate-300 text-sm">
-                            <li class="flex items-start gap-2">
-                                <i data-lucide="star" class="w-4 h-4 text-amber-500 shrink-0 mt-1"></i>
-                                <div>
-                                    <strong>Gold Standard Award:</strong> Issued Sept 9, 2013 by The Duke of Edinburgh's International Award, Bangladesh.
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i data-lucide="star" class="w-4 h-4 text-amber-500 shrink-0 mt-1"></i>
-                                <div>
-                                    <strong>Founder & Advisor:</strong> BRAC University House of Talents (Student Volunteer Team).
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i data-lucide="star" class="w-4 h-4 text-amber-500 shrink-0 mt-1"></i>
-                                <div>
-                                    <strong>Community Volunteer:</strong> Active contribution to Project Hashi Mukh.
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i data-lucide="star" class="w-4 h-4 text-amber-500 shrink-0 mt-1"></i>
-                                <div>
-                                    <strong>Bronze Award:</strong> The Duke of Edinburgh's International Award (BRAC University).
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Publication Link Box -->
-                    <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm space-y-4 flex flex-col justify-between">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <!-- EMBA -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl relative overflow-hidden flex flex-col justify-between">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-brand-blue/5 rounded-bl-full -z-0"></div>
                         <div>
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                                <i data-lucide="book-open" class="text-brand-600"></i> Published Writing
-                            </h3>
-                            <h4 class="text-lg font-semibold text-slate-800 dark:text-slate-200 mt-3">
-                                Emerging and Ongoing Opportunities of Artificial Intelligence (AI) and Challenges for Corporate Employees
-                            </h4>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm mt-2">
-                                Published on Medium. Explores the transformative role of AI in the corporate world, highlighting competitive advantages alongside structural adoption challenges facing workforce members.
-                            </p>
+                            <span class="text-brand-cyan font-bold text-sm tracking-wider uppercase">Executive MBA</span>
+                            <h3 class="text-xl font-bold text-white mt-1 mb-2">Major in Marketing</h3>
+                            <p class="text-slate-400 text-sm mb-4">BRAC University</p>
                         </div>
-                        <a href="https://medium.com/@just.shazzad/emerging-and-ongoing-opportunities-of-artificial-intelligence-ai-and-challenges-for-corporate-cc81303b728e" 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 hover:bg-brand-100 font-semibold transition-colors text-sm w-full">
-                            <i data-lucide="external-link" class="w-4 h-4"></i> Read Article on Medium
-                        </a>
+                        <div class="pt-4 border-t border-slate-800 flex items-center justify-between text-sm">
+                            <span class="text-slate-400">Academic Result</span>
+                            <span class="font-bold text-white bg-slate-800 px-3 py-1 rounded-md">CGPA 3.17</span>
+                        </div>
                     </div>
+
+                    <!-- BBA -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl relative overflow-hidden flex flex-col justify-between">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-brand-blue/5 rounded-bl-full -z-0"></div>
+                        <div>
+                            <span class="text-brand-cyan font-bold text-sm tracking-wider uppercase">Bachelor of Business Administration</span>
+                            <h3 class="text-xl font-bold text-white mt-1 mb-2">Major in Marketing</h3>
+                            <p class="text-slate-400 text-sm mb-4">University of Liberal Arts Bangladesh (ULAB)</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 flex items-center justify-between text-sm">
+                            <span class="text-slate-400">Academic Result</span>
+                            <span class="font-bold text-white bg-slate-800 px-3 py-1 rounded-md">CGPA 3.33</span>
+                        </div>
+                    </div>
+
+                    <!-- HSC -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl relative overflow-hidden flex flex-col justify-between">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-brand-blue/5 rounded-bl-full -z-0"></div>
+                        <div>
+                            <span class="text-brand-cyan font-bold text-sm tracking-wider uppercase">Higher Secondary Certificate</span>
+                            <h3 class="text-xl font-bold text-white mt-1 mb-2">Business Studies</h3>
+                            <p class="text-slate-400 text-sm mb-4">Dhaka Imperial College</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 flex items-center justify-between text-sm">
+                            <span class="text-slate-400">Stream</span>
+                            <span class="font-bold text-white bg-slate-800 px-3 py-1 rounded-md">Business Studies</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards & Volunteer Work Section -->
+        <section id="awards" class="py-20 bg-slate-900/50 border-y border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="text-3xl font-bold text-white mb-4">Honors, Awards & Mentorship</h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-brand-cyan to-brand-blue mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <!-- Award 1 -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex items-start gap-4">
+                        <div class="p-3 bg-amber-500/10 text-amber-400 rounded-xl text-2xl shrink-0">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-1">Gold Standard Award</h3>
+                            <p class="text-slate-400 text-sm">The Duke of Edinburgh's International Award Scheme</p>
+                        </div>
+                    </div>
+
+                    <!-- Award 2 -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex items-start gap-4">
+                        <div class="p-3 bg-amber-700/20 text-amber-600 rounded-xl text-2xl shrink-0">
+                            <i class="fa-solid fa-medal"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-1">Bronze Standard Award</h3>
+                            <p class="text-slate-400 text-sm">The Duke of Edinburgh's International Award Scheme</p>
+                        </div>
+                    </div>
+
+                    <!-- Leadership -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex items-start gap-4">
+                        <div class="p-3 bg-brand-blue/20 text-brand-cyan rounded-xl text-2xl shrink-0">
+                            <i class="fa-solid fa-users-rays"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-1">Founder & Advisor</h3>
+                            <p class="text-slate-400 text-sm">BRAC University House of Talents</p>
+                        </div>
+                    </div>
+
+                    <!-- Volunteer -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex items-start gap-4">
+                        <div class="p-3 bg-emerald-500/10 text-emerald-400 rounded-xl text-2xl shrink-0">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-1">Community Volunteer</h3>
+                            <p class="text-slate-400 text-sm">Project Hashi Mukh (Social Welfare Initiative)</p>
+                        </div>
+                    </div>
+
+                    <!-- Training 1 -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex items-start gap-4">
+                        <div class="p-3 bg-blue-500/10 text-blue-400 rounded-xl text-2xl shrink-0">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-1">Service Culture Training</h3>
+                            <p class="text-slate-400 text-sm">Institutional Excellence & Operational Service</p>
+                        </div>
+                    </div>
+
+                    <!-- Training 2 -->
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex items-start gap-4">
+                        <div class="p-3 bg-purple-500/10 text-purple-400 rounded-xl text-2xl shrink-0">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-1">Transactional Leadership</h3>
+                            <p class="text-slate-400 text-sm">Management & Strategic Supervision Workshop</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publication Section -->
+        <section id="publication" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="text-3xl font-bold text-white mb-4">Publications & Thought Leadership</h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-brand-cyan to-brand-blue mx-auto rounded-full"></div>
+                </div>
+
+                <div class="max-w-3xl mx-auto bg-slate-900 border border-slate-800 p-8 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 hover:border-brand-cyan/40 transition-all">
+                    <div class="space-y-2">
+                        <span class="px-3 py-1 rounded-full bg-brand-blue/20 text-brand-cyan text-xs font-semibold">ARTICLE</span>
+                        <h3 class="text-xl font-bold text-white">Emerging and Ongoing Opportunities of Artificial Intelligence (AI) and Challenges for Corporate Employees</h3>
+                        <p class="text-slate-400 text-sm">Published online on Medium platform.</p>
+                    </div>
+                    <a href="https://medium.com" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-brand-cyan font-semibold text-sm flex items-center gap-2 shrink-0 border border-slate-700 transition-all">
+                        Read Article <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                
-                <!-- Direct Details -->
-                <div class="space-y-6">
-                    <div>
-                        <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Get In Touch</h2>
-                        <p class="text-slate-500 dark:text-slate-400 mt-2">Feel free to reach out for collaborations, leadership roles, or consultations.</p>
-                    </div>
-
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                            <div class="p-3 rounded-lg bg-brand-50 dark:bg-brand-900/30 text-brand-600">
-                                <i data-lucide="phone" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-slate-500 dark:text-slate-400">Phone</p>
-                                <a href="tel:+8801818818886" class="font-medium text-slate-800 dark:text-slate-200 hover:text-brand-600">+880 1818-818886</a>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                            <div class="p-3 rounded-lg bg-brand-50 dark:bg-brand-900/30 text-brand-600">
-                                <i data-lucide="mail" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-slate-500 dark:text-slate-400">Email</p>
-                                <a href="mailto:just.shazzad@gmail.com" class="font-medium text-slate-800 dark:text-slate-200 hover:text-brand-600">just.shazzad@gmail.com</a>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                            <div class="p-3 rounded-lg bg-brand-50 dark:bg-brand-900/30 text-brand-600">
-                                <i data-lucide="map-pin" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-slate-500 dark:text-slate-400">Address</p>
-                                <p class="font-medium text-slate-800 dark:text-slate-200">47, Bonogram Road, Wari, Sutrapur, Dhaka 1203</p>
-                            </div>
-                        </div>
-                    </div>
+        <section id="contact" class="py-20 bg-slate-900/50 border-t border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="text-3xl font-bold text-white mb-4">Get In Touch</h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-brand-cyan to-brand-blue mx-auto rounded-full"></div>
                 </div>
 
-                <!-- Interactive Form -->
-                <div class="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
-                    <form id="contactForm" class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Your Name</label>
-                            <input type="text" required placeholder="John Doe" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-brand-500 outline-none transition">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-5xl mx-auto">
+                    <!-- Info List -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <h3 class="text-2xl font-bold text-white mb-4">Contact Information</h3>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-brand-cyan text-xl shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-medium uppercase">Email Address</p>
+                                <a href="mailto:just.shazzad@gmail.com" class="text-white font-semibold hover:text-brand-cyan transition-colors">
+                                    just.shazzad@gmail.com
+                                </a>
+                            </div>
                         </div>
 
-                        <div>
-                            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Your Email</label>
-                            <input type="email" required placeholder="john@example.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-brand-500 outline-none transition">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-brand-cyan text-xl shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-medium uppercase">Mobile Phone</p>
+                                <a href="tel:+8801818818886" class="text-white font-semibold hover:text-brand-cyan transition-colors">
+                                    +880 1818-818886
+                                </a>
+                            </div>
                         </div>
 
-                        <div>
-                            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Message</label>
-                            <textarea rows="4" required placeholder="Write your message here..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-brand-500 outline-none transition"></textarea>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-brand-cyan text-xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-medium uppercase">Location</p>
+                                <p class="text-white font-semibold">Dhaka, Bangladesh</p>
+                            </div>
                         </div>
 
-                        <button type="submit" class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium shadow-md transition-all">
-                            Send Message
-                        </button>
-                    </form>
-                    <div id="formStatus" class="hidden mt-4 p-3 rounded-lg text-sm text-center"></div>
+                        <!-- Language skills box -->
+                        <div class="pt-6 border-t border-slate-800">
+                            <h4 class="text-sm font-semibold text-slate-300 mb-3 uppercase tracking-wider">Languages Proficiency</h4>
+                            <div class="flex gap-4">
+                                <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-sm font-medium border border-slate-700">Bangla (Native)</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-sm font-medium border border-slate-700">English (High Proficiency)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Form -->
+                    <div class="lg:col-span-7 bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-xl">
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Your Name</label>
+                                <input type="text" id="name" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-cyan transition-colors" placeholder="John Doe">
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Your Email</label>
+                                <input type="email" id="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-cyan transition-colors" placeholder="john@example.com">
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Message</label>
+                                <textarea id="message" rows="4" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-cyan transition-colors" placeholder="Write your message here..."></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-brand-blue to-cyan-500 text-white font-semibold shadow-lg shadow-blue-500/25 hover:shadow-cyan-500/40 hover:scale-[1.01] transition-all">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
                 </div>
-
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-8 text-center text-slate-500 text-sm">
-        <div class="max-w-6xl mx-auto px-4">
-            <p>© 2026 Md. Shazzad Hossain. All rights reserved.</p>
+    <footer class="bg-slate-950 border-t border-slate-900 py-8 text-center text-slate-500 text-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>&copy; 2026 Md. Shazzad Hossain. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Custom Modal Container for Notifications -->
+    <div id="modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 max-w-sm w-full text-center space-y-4 shadow-2xl">
+            <div id="modal-icon" class="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center mx-auto text-2xl">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 id="modal-title" class="text-xl font-bold text-white">Message Sent!</h3>
+            <p id="modal-desc" class="text-slate-400 text-sm">Thank you for reaching out. Your message has been sent successfully.</p>
+            <button id="modal-close" class="w-full py-2.5 rounded-xl bg-slate-800 text-white font-medium hover:bg-slate-700 transition-colors">Close</button>
+        </div>
+    </div>
+
     <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
+        // Toggle mobile navigation menu
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-        // Dark Mode Switcher
-        const themeToggleBtn = document.getElementById('themeToggle');
-        
-        // System preference default check
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.classList.add('dark');
-        }
-
-        themeToggleBtn.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-        });
-
-        // Mobile Menu Toggle
-        const menuToggleBtn = document.getElementById('menuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        menuToggleBtn.addEventListener('click', () => {
+        menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Contact Form Submission Handler
-        const contactForm = document.getElementById('contactForm');
-        const formStatus = document.getElementById('formStatus');
+        // Close mobile menu on clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Contact Form Modal Submission
+        const contactForm = document.getElementById('contact-form');
+        const modal = document.getElementById('modal');
+        const modalClose = document.getElementById('modal-close');
 
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            formStatus.classList.remove('hidden', 'bg-red-100', 'text-red-700');
-            formStatus.classList.add('bg-emerald-100', 'text-emerald-700', 'dark:bg-emerald-900/40', 'dark:text-emerald-300');
-            formStatus.innerText = "Thank you! Your message has been received.";
+            modal.classList.remove('hidden');
             contactForm.reset();
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.classList.add('hidden');
         });
     </script>
 </body>
