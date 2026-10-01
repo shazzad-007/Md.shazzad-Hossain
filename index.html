@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Md. Shazzad Hossain | Professional Portfolio</title>
@@ -11,28 +13,51 @@ content="Md. Shazzad Hossain — Administration, Student Life, Operations, Logis
 
 <style>
 
+/* =========================================================
+   ROOT
+========================================================= */
+
 :root {
+
     --bg: #0b1120;
     --card: #111827;
     --card-soft: #172033;
+
     --text: #f8fafc;
     --muted: #a8b3c7;
+
     --line: #273449;
+
     --accent: #38bdf8;
+
     --accent-soft: rgba(56,189,248,.10);
+
 }
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
 
 * {
+
     box-sizing: border-box;
+
     margin: 0;
     padding: 0;
+
 }
+
 
 html {
+
     scroll-behavior: smooth;
+
 }
 
+
 body {
+
     font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -43,24 +68,32 @@ body {
         sans-serif;
 
     background: var(--bg);
+
     color: var(--text);
+
     line-height: 1.65;
+
 }
 
-/* =========================
+
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero {
+
     text-align: center;
+
     padding: 90px 20px 70px;
 
     background:
+
         radial-gradient(
             circle at top,
             rgba(56,189,248,.12),
             transparent 45%
         ),
+
         linear-gradient(
             180deg,
             #111827 0%,
@@ -68,33 +101,50 @@ body {
         );
 
     border-bottom: 1px solid var(--line);
+
 }
+
 
 .hero-inner {
+
     max-width: 850px;
+
     margin: auto;
+
 }
 
+
 .badge {
+
     display: inline-block;
+
     padding: 6px 13px;
+
     margin-bottom: 20px;
 
     border-radius: 50px;
 
     background: var(--accent-soft);
+
     border: 1px solid rgba(56,189,248,.25);
 
     color: var(--accent);
 
     font-size: .75rem;
+
     font-weight: 700;
+
     letter-spacing: .08em;
+
     text-transform: uppercase;
+
 }
 
+
 .hero h1 {
+
     font-size: clamp(2.4rem, 7vw, 4.4rem);
+
     line-height: 1.05;
 
     color: #ffffff;
@@ -102,14 +152,12 @@ body {
     letter-spacing: -0.04em;
 
     margin-bottom: 18px;
+
 }
 
-/* NAME — SINGLE COLOR */
-.hero h1 span {
-    color: #ffffff;
-}
 
 .hero-subtitle {
+
     color: var(--accent);
 
     font-size: clamp(1rem, 2.5vw, 1.25rem);
@@ -117,9 +165,12 @@ body {
     font-weight: 600;
 
     margin-bottom: 24px;
+
 }
 
+
 .hero-description {
+
     max-width: 760px;
 
     margin: auto auto 30px;
@@ -127,19 +178,29 @@ body {
     color: var(--muted);
 
     font-size: 1rem;
+
 }
+
 
 .actions {
+
     display: flex;
+
     justify-content: center;
+
     flex-wrap: wrap;
+
     gap: 12px;
+
 }
 
+
 .btn {
+
     display: inline-flex;
 
     align-items: center;
+
     justify-content: center;
 
     min-height: 46px;
@@ -151,61 +212,72 @@ body {
     text-decoration: none;
 
     font-size: .92rem;
+
     font-weight: 700;
 
     transition: .25s ease;
 
     border: 1px solid var(--line);
+
 }
 
+
 .btn-primary {
+
     background: var(--accent);
+
     color: #06111d;
 
     border-color: var(--accent);
+
 }
+
 
 .btn-secondary {
+
     background: transparent;
+
     color: var(--text);
+
 }
+
 
 .btn:hover {
+
     transform: translateY(-2px);
+
 }
 
-/* =========================
+
+/* =========================================================
    MAIN
-========================= */
+========================================================= */
 
 .container {
+
     width: min(1040px, calc(100% - 36px));
+
     margin: auto;
+
 }
+
 
 main {
+
     padding: 65px 0;
+
 }
+
 
 section {
+
     margin-bottom: 65px;
 
-    animation: fadeUp .7s ease both;
 }
 
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 .section-title {
+
     display: flex;
 
     align-items: center;
@@ -213,15 +285,21 @@ section {
     gap: 14px;
 
     margin-bottom: 22px;
+
 }
 
+
 .section-title h2 {
+
     font-size: 1.45rem;
 
     white-space: nowrap;
+
 }
 
+
 .section-title::after {
+
     content: "";
 
     height: 1px;
@@ -229,27 +307,64 @@ section {
     background: var(--line);
 
     flex: 1;
+
 }
 
+
 .lead {
+
     color: var(--muted);
 
     font-size: 1.04rem;
+
 }
 
-/* =========================
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+
+        opacity .8s ease,
+
+        transform .8s ease;
+
+}
+
+
+.reveal.visible {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+
+/* =========================================================
    SKILLS
-========================= */
+========================================================= */
 
 .tags {
+
     display: flex;
 
     flex-wrap: wrap;
 
     gap: 9px;
+
 }
 
+
 .tag {
+
     padding: 8px 13px;
 
     background: var(--card);
@@ -263,20 +378,27 @@ section {
     font-size: .84rem;
 
     transition: .2s ease;
+
 }
 
+
 .tag:hover {
+
     border-color: var(--accent);
 
     color: var(--accent);
+
 }
 
-/* =========================
+
+/* =========================================================
    EXPERIENCE
-========================= */
+========================================================= */
 
 .job {
+
     background:
+
         linear-gradient(
             145deg,
             var(--card),
@@ -290,10 +412,14 @@ section {
     padding: 27px;
 
     box-shadow:
+
         0 10px 30px rgba(0,0,0,.12);
+
 }
 
+
 .job-header {
+
     display: flex;
 
     justify-content: space-between;
@@ -303,54 +429,75 @@ section {
     gap: 15px;
 
     flex-wrap: wrap;
+
 }
 
+
 .job-title {
+
     font-size: 1.18rem;
 
     font-weight: 700;
+
 }
 
+
 .company {
+
     color: var(--muted);
 
     font-style: italic;
 
     margin-top: 4px;
+
 }
 
+
 .date {
+
     color: var(--accent);
 
     font-size: .85rem;
 
     font-weight: 700;
+
 }
 
+
 .job ul {
+
     margin: 18px 0 0 20px;
 
     color: var(--muted);
+
 }
+
 
 .job li {
+
     margin-bottom: 9px;
+
 }
 
-/* =========================
-   CARDS
-========================= */
+
+/* =========================================================
+   GENERAL CARDS
+========================================================= */
 
 .cards {
+
     display: grid;
 
     grid-template-columns:
         repeat(auto-fit, minmax(280px, 1fr));
 
     gap: 18px;
+
 }
 
+
 .card {
+
     background: var(--card);
 
     border: 1px solid var(--line);
@@ -360,27 +507,39 @@ section {
     padding: 24px;
 
     transition: .25s ease;
+
 }
+
 
 .card:hover {
-    transform: translateY(-3px);
+
+    transform: translateY(-5px);
 
     border-color: rgba(56,189,248,.5);
+
 }
 
+
 .card h3 {
+
     font-size: 1.08rem;
 
     margin: 10px 0 8px;
+
 }
 
+
 .card p {
+
     color: var(--muted);
 
     font-size: .92rem;
+
 }
 
+
 .chip {
+
     display: inline-block;
 
     padding: 5px 9px;
@@ -400,14 +559,295 @@ section {
     text-transform: uppercase;
 
     letter-spacing: .05em;
+
 }
 
-/* =========================
+
+/* =========================================================
+   SELECTED EVENTS
+========================================================= */
+
+.event-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(290px, 1fr));
+
+    gap: 20px;
+
+}
+
+
+.event-card {
+
+    background:
+
+        linear-gradient(
+            145deg,
+            var(--card),
+            var(--card-soft)
+        );
+
+    border: 1px solid var(--line);
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    transition:
+
+        transform .35s ease,
+
+        border-color .35s ease,
+
+        box-shadow .35s ease;
+
+}
+
+
+.event-card:hover {
+
+    transform: translateY(-7px) scale(1.01);
+
+    border-color: rgba(56,189,248,.55);
+
+    box-shadow:
+
+        0 18px 40px rgba(0,0,0,.25);
+
+}
+
+
+.event-image {
+
+    aspect-ratio: 16 / 10;
+
+    overflow: hidden;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #172033,
+            #0f172a
+        );
+
+}
+
+
+.event-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+
+        transform .55s ease,
+
+        filter .35s ease;
+
+}
+
+
+.event-card:hover .event-image img {
+
+    transform: scale(1.07);
+
+    filter: brightness(1.08);
+
+}
+
+
+.event-content {
+
+    padding: 21px;
+
+}
+
+
+.event-content h3 {
+
+    font-size: 1.08rem;
+
+    margin: 11px 0 7px;
+
+    color: var(--text);
+
+}
+
+
+.event-content p {
+
+    color: var(--muted);
+
+    font-size: .9rem;
+
+}
+
+
+.event-achievement {
+
+    color: var(--accent) !important;
+
+    font-weight: 700;
+
+    margin-bottom: 9px;
+
+}
+
+
+/* =========================================================
+   CERTIFICATES
+========================================================= */
+
+.certificate-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(290px, 1fr));
+
+    gap: 20px;
+
+}
+
+
+.certificate-card {
+
+    background:
+
+        linear-gradient(
+            145deg,
+            var(--card),
+            var(--card-soft)
+        );
+
+    border: 1px solid var(--line);
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    transition:
+
+        transform .35s ease,
+
+        border-color .35s ease,
+
+        box-shadow .35s ease;
+
+}
+
+
+.certificate-card:hover {
+
+    transform: translateY(-6px);
+
+    border-color: rgba(56,189,248,.55);
+
+    box-shadow:
+
+        0 18px 40px rgba(0,0,0,.22);
+
+}
+
+
+.certificate-image {
+
+    aspect-ratio: 16 / 10;
+
+    overflow: hidden;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #172033,
+            #0f172a
+        );
+
+}
+
+
+.certificate-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+
+        transform .5s ease,
+
+        filter .3s ease;
+
+}
+
+
+.certificate-card:hover
+.certificate-image img {
+
+    transform: scale(1.05);
+
+    filter: brightness(1.05);
+
+}
+
+
+.certificate-content {
+
+    padding: 21px;
+
+}
+
+
+.certificate-content h3 {
+
+    font-size: 1.08rem;
+
+    margin: 11px 0 8px;
+
+}
+
+
+.certificate-content p {
+
+    color: var(--muted);
+
+    font-size: .9rem;
+
+}
+
+
+/* =========================================================
+   PROFESSIONAL VALUE
+========================================================= */
+
+.value-card {
+
+    min-height: 180px;
+
+}
+
+
+/* =========================================================
    CONTACT
-========================= */
+========================================================= */
 
 .contact {
+
     background:
+
         linear-gradient(
             145deg,
             #111827,
@@ -419,39 +859,54 @@ section {
     border-radius: 16px;
 
     padding: 30px;
+
 }
 
+
 .contact p {
+
     color: var(--muted);
 
     margin-bottom: 18px;
+
 }
 
+
 .links {
+
     display: flex;
 
     flex-wrap: wrap;
 
     gap: 18px;
+
 }
 
+
 .links a {
+
     color: var(--accent);
 
     text-decoration: none;
 
     font-weight: 600;
+
 }
+
 
 .links a:hover {
+
     text-decoration: underline;
+
 }
 
-/* =========================
+
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer {
+
     text-align: center;
 
     padding: 35px 20px;
@@ -461,113 +916,200 @@ footer {
     color: var(--muted);
 
     font-size: .85rem;
+
 }
 
-/* =========================
+
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media (max-width: 600px) {
 
     .hero {
+
         padding: 60px 15px 50px;
+
     }
+
 
     .container {
+
         width: min(100% - 24px, 1040px);
+
     }
+
 
     main {
+
         padding: 45px 0;
+
     }
+
 
     section {
+
         margin-bottom: 48px;
+
     }
+
 
     .section-title h2 {
+
         font-size: 1.25rem;
+
     }
+
 
     .job {
+
         padding: 20px;
+
     }
+
 
     .actions .btn {
+
         width: 100%;
+
     }
+
+
+    .event-grid,
+    .certificate-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .event-content,
+    .certificate-content {
+
+        padding: 18px;
+
+    }
+
 }
 
-/* =========================
+
+/* =========================================================
    PRINT
-========================= */
+========================================================= */
 
 @media print {
 
     body {
+
         background: white !important;
+
         color: #111 !important;
+
     }
+
 
     .hero {
+
         background: white !important;
+
         border-bottom: 2px solid #111;
+
         padding: 25px 0;
+
     }
 
-    .hero h1,
-    .hero h1 span {
+
+    .hero h1 {
+
         color: #111 !important;
+
     }
+
 
     .hero-subtitle {
+
         color: #333 !important;
+
     }
+
 
     .hero-description,
     .lead,
     .job ul,
     .company,
     .card p,
+    .event-content p,
+    .certificate-content p,
     footer {
+
         color: #333 !important;
+
     }
+
 
     .actions {
+
         display: none !important;
+
     }
 
+
     main {
+
         padding: 20px 0;
+
     }
+
 
     .card,
     .job,
+    .event-card,
+    .certificate-card,
     .contact {
+
         background: white !important;
+
         border: 1px solid #aaa;
+
         box-shadow: none;
+
         page-break-inside: avoid;
+
     }
+
+
+    .event-image,
+    .certificate-image {
+
+        background: white;
+
+    }
+
 
     .tag,
     .chip {
+
         color: #111;
+
         background: white;
+
         border-color: #777;
+
     }
+
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =========================
+<!-- =======================================================
      HERO
-========================= -->
+======================================================= -->
 
 <header class="hero">
 
@@ -577,13 +1119,16 @@ footer {
             Professional Portfolio
         </div>
 
+
         <h1>
             Md. Shazzad Hossain
         </h1>
 
+
         <p class="hero-subtitle">
             Administration • Student Life • Operations • Event Management
         </p>
+
 
         <p class="hero-description">
 
@@ -598,8 +1143,6 @@ footer {
         <div class="actions">
 
 
-            <!-- DIRECT CV DOWNLOAD -->
-
             <a
                 href="Md-Shazzad-Hossain-CV.pdf"
                 class="btn btn-primary"
@@ -608,8 +1151,6 @@ footer {
                 📄 Download CV
             </a>
 
-
-            <!-- GITHUB -->
 
             <a
                 href="https://github.com/shazzad-007/Md.shazzad-Hossain"
@@ -629,27 +1170,36 @@ footer {
 
 
 
-<!-- =========================
-     MAIN CONTENT
-========================= -->
+<!-- =======================================================
+     MAIN
+======================================================= -->
 
 <main class="container">
 
 
-<!-- EXECUTIVE FOCUS -->
+<!-- =======================================================
+     EXECUTIVE FOCUS
+======================================================= -->
 
-<section>
+<section class="reveal">
 
     <div class="section-title">
-        <h2>Executive Focus</h2>
+
+        <h2>
+            Executive Focus
+        </h2>
+
     </div>
+
 
     <p class="lead">
 
-        A professional manager with more than 12 years of experience
-        in higher-education administration and institutional operations,
-        with practical experience in student life, club coordination,
-        events, logistics, budgeting and cross-functional coordination.
+        A professional manager with more than 12 years
+        of experience in higher-education administration
+        and institutional operations, with practical
+        experience in student life, club coordination,
+        events, logistics, budgeting and cross-functional
+        coordination.
 
     </p>
 
@@ -657,12 +1207,18 @@ footer {
 
 
 
-<!-- CORE CAPABILITIES -->
+<!-- =======================================================
+     CORE CAPABILITIES
+======================================================= -->
 
-<section>
+<section class="reveal">
 
     <div class="section-title">
-        <h2>Core Capabilities</h2>
+
+        <h2>
+            Core Capabilities
+        </h2>
+
     </div>
 
 
@@ -722,35 +1278,47 @@ footer {
 
 
 
-<!-- PROFESSIONAL EXPERIENCE -->
+<!-- =======================================================
+     PROFESSIONAL EXPERIENCE
+======================================================= -->
 
-<section>
+<section class="reveal">
 
     <div class="section-title">
-        <h2>Professional Experience</h2>
+
+        <h2>
+            Professional Experience
+        </h2>
+
     </div>
 
 
     <div class="job">
-
 
         <div class="job-header">
 
             <div>
 
                 <div class="job-title">
+
                     Senior Manager – Administration & Student Life
+
                 </div>
 
+
                 <div class="company">
+
                     BRAC University, Dhaka
+
                 </div>
 
             </div>
 
 
             <div class="date">
+
                 Nov 2012 – Nov 2024
+
             </div>
 
         </div>
@@ -764,13 +1332,14 @@ footer {
             </li>
 
             <li>
-                Supported freshman orientation and student advising
-                after enrolment, including course-selection guidance.
+                Supported freshman orientation and student
+                advising after enrolment, including
+                course-selection guidance.
             </li>
 
             <li>
-                Coordinated and guided university student clubs
-                and societies.
+                Coordinated and guided university student
+                clubs and societies.
             </li>
 
             <li>
@@ -790,8 +1359,9 @@ footer {
             </li>
 
             <li>
-                Coordinated the Duke of Edinburgh's International
-                Award programme at BRAC University.
+                Coordinated the Duke of Edinburgh's
+                International Award programme at
+                BRAC University.
             </li>
 
         </ul>
@@ -802,81 +1372,212 @@ footer {
 
 
 
-<!-- ACHIEVEMENTS -->
+<!-- =======================================================
+     SELECTED EVENTS
+======================================================= -->
 
-<section id="certificates">
+<section
+    id="selected-events"
+    class="reveal"
+>
 
     <div class="section-title">
-        <h2>Selected Achievements & Certifications</h2>
+
+        <h2>
+            Selected Events & Leadership
+        </h2>
+
     </div>
 
 
-    <div class="cards">
+    <div class="event-grid">
 
 
-        <article class="card">
+        <!-- EVENT 01 -->
 
-            <span class="chip">
-                International Programme
-            </span>
+        <article class="event-card">
 
-            <h3>
-                The Duke of Edinburgh's International Award
-            </h3>
+            <div class="event-image">
 
-            <p>
+                <!--
+                    IMAGE FILE:
+                    event-01-volleyball.jpg
+                -->
 
-                Coordinated the programme at BRAC University.
-                Gold Standard certificate dated
-                9 September 2013, covering community service,
-                physical recreation, skills development,
-                adventurous journeys and a residential project.
+                <img
+                    src="event-01-volleyball.jpg"
+                    alt="BRAC University Women's Volleyball Team"
+                    loading="lazy"
+                >
 
-            </p>
+            </div>
+
+
+            <div class="event-content">
+
+                <span class="chip">
+                    Sports & Student Activities
+                </span>
+
+
+                <h3>
+                    BRAC University’s First Women’s Volleyball Team
+                </h3>
+
+
+                <p class="event-achievement">
+
+                    2nd Runner-Up — National Tournament
+
+                </p>
+
+
+                <p>
+
+                    Selected university sports achievement
+                    featured in the professional portfolio.
+
+                </p>
+
+            </div>
 
         </article>
 
 
 
-        <article class="card">
+        <!-- EVENT 02 -->
 
-            <span class="chip">
-                Digital Skills
-            </span>
+        <article class="event-card">
 
-            <h3>
-                Future Ready with Digital Skills
-            </h3>
+            <div class="event-image">
 
-            <p>
+                <!--
+                    IMAGE FILE:
+                    event-02.jpg
+                -->
 
-                UNICEF & Generation Unlimited |
-                P2E Bangladesh.
+                <img
+                    src="event-02.jpg"
+                    alt="Selected professional event"
+                    loading="lazy"
+                >
 
-                Certificate dated 15 September 2026.
+            </div>
 
-            </p>
+
+            <div class="event-content">
+
+                <span class="chip">
+                    Event Management
+                </span>
+
+
+                <h3>
+                    Event Title
+                </h3>
+
+
+                <p>
+
+                    Event description will be added
+                    when the final photograph and details
+                    are provided.
+
+                </p>
+
+            </div>
 
         </article>
 
 
 
-        <article class="card">
+        <!-- EVENT 03 -->
 
-            <span class="chip">
-                Professional Credential
-            </span>
+        <article class="event-card">
 
-            <h3>
-                International Manuscript Reviewer
-            </h3>
+            <div class="event-image">
 
-            <p>
+                <!--
+                    IMAGE FILE:
+                    event-03.jpg
+                -->
 
-                Professional credential included
-                in the portfolio.
+                <img
+                    src="event-03.jpg"
+                    alt="Selected professional event"
+                    loading="lazy"
+                >
 
-            </p>
+            </div>
+
+
+            <div class="event-content">
+
+                <span class="chip">
+                    Leadership & Coordination
+                </span>
+
+
+                <h3>
+                    Event Title
+                </h3>
+
+
+                <p>
+
+                    Event description will be added
+                    when the final photograph and details
+                    are provided.
+
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- EVENT 04 -->
+
+        <article class="event-card">
+
+            <div class="event-image">
+
+                <!--
+                    IMAGE FILE:
+                    event-04.jpg
+                -->
+
+                <img
+                    src="event-04.jpg"
+                    alt="Selected professional event"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="event-content">
+
+                <span class="chip">
+                    Institutional Programme
+                </span>
+
+
+                <h3>
+                    Event Title
+                </h3>
+
+
+                <p>
+
+                    Event description will be added
+                    when the final photograph and details
+                    are provided.
+
+                </p>
+
+            </div>
 
         </article>
 
@@ -887,23 +1588,204 @@ footer {
 
 
 
-<!-- PROFESSIONAL VALUE -->
+<!-- =======================================================
+     CERTIFICATES
+======================================================= -->
 
-<section>
+<section
+    id="certificates"
+    class="reveal"
+>
 
     <div class="section-title">
-        <h2>Professional Value</h2>
+
+        <h2>
+            Certificates & Professional Credentials
+        </h2>
+
+    </div>
+
+
+    <div class="certificate-grid">
+
+
+        <!-- CERTIFICATE 01 -->
+
+        <article class="certificate-card">
+
+            <div class="certificate-image">
+
+                <!--
+                    IMAGE FILE:
+                    certificate-01.jpg
+                -->
+
+                <img
+                    src="certificate-01.jpg"
+                    alt="The Duke of Edinburgh's International Award certificate"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="certificate-content">
+
+                <span class="chip">
+                    International Programme
+                </span>
+
+
+                <h3>
+                    The Duke of Edinburgh's International Award
+                </h3>
+
+
+                <p>
+
+                    Gold Standard certificate dated
+                    9 September 2013. The programme included
+                    community service, physical recreation,
+                    skills development, adventurous journeys
+                    and a residential project.
+
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CERTIFICATE 02 -->
+
+        <article class="certificate-card">
+
+            <div class="certificate-image">
+
+                <!--
+                    IMAGE FILE:
+                    certificate-02.jpg
+                -->
+
+                <img
+                    src="certificate-02.jpg"
+                    alt="Future Ready with Digital Skills certificate"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="certificate-content">
+
+                <span class="chip">
+                    Digital Skills
+                </span>
+
+
+                <h3>
+                    Future Ready with Digital Skills
+                </h3>
+
+
+                <p>
+
+                    <em>
+                        Issued by UNICEF & Generation Unlimited
+                        (Passport to Earning Bangladesh)
+                    </em>
+
+                    <br><br>
+
+                    Certified in essential digital competencies,
+                    critical thinking, and future-focused skills
+                    designed to solve modern workforce challenges.
+
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CERTIFICATE 03 -->
+
+        <article class="certificate-card">
+
+            <div class="certificate-image">
+
+                <!--
+                    IMAGE FILE:
+                    certificate-03.jpg
+                -->
+
+                <img
+                    src="certificate-03.jpg"
+                    alt="International Manuscript Reviewer credential"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="certificate-content">
+
+                <span class="chip">
+                    Professional Credential
+                </span>
+
+
+                <h3>
+                    International Manuscript Reviewer
+                </h3>
+
+
+                <p>
+
+                    Professional credential included
+                    in the portfolio. Detailed credential
+                    information will be added after the
+                    certificate image is provided.
+
+                </p>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     PROFESSIONAL VALUE
+======================================================= -->
+
+<section class="reveal">
+
+    <div class="section-title">
+
+        <h2>
+            Professional Value
+        </h2>
+
     </div>
 
 
     <div class="cards">
 
 
-        <article class="card">
+        <article class="card value-card">
 
             <h3>
                 Operational Leadership
             </h3>
+
 
             <p>
 
@@ -917,11 +1799,12 @@ footer {
 
 
 
-        <article class="card">
+        <article class="card value-card">
 
             <h3>
                 Student & Stakeholder Support
             </h3>
+
 
             <p>
 
@@ -935,11 +1818,12 @@ footer {
 
 
 
-        <article class="card">
+        <article class="card value-card">
 
             <h3>
                 Execution & Coordination
             </h3>
+
 
             <p>
 
@@ -958,12 +1842,18 @@ footer {
 
 
 
-<!-- CONTACT -->
+<!-- =======================================================
+     CONTACT
+======================================================= -->
 
-<section>
+<section class="reveal">
 
     <div class="section-title">
-        <h2>Portfolio & Contact</h2>
+
+        <h2>
+            Portfolio & Contact
+        </h2>
+
     </div>
 
 
@@ -1010,13 +1900,76 @@ footer {
 
 
 
-<!-- FOOTER -->
+<!-- =======================================================
+     FOOTER
+======================================================= -->
 
 <footer>
 
     © 2026 Md. Shazzad Hossain · Professional Portfolio
 
 </footer>
+
+
+
+<!-- =======================================================
+     SCROLL REVEAL JAVASCRIPT
+======================================================= -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+
+        const observer =
+            new IntersectionObserver(
+
+                function (entries) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (entry.isIntersecting) {
+
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+
+                                observer.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+
+                {
+                    threshold: 0.12
+                }
+
+            );
+
+
+        revealElements.forEach(
+            function (element) {
+
+                observer.observe(element);
+
+            }
+        );
+
+    }
+);
+
+</script>
 
 
 </body>
