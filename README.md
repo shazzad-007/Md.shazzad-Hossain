@@ -10,6 +10,7 @@
             --bg-card: #1e293b;
             --accent-blue: #38bdf8;
             --accent-green: #4ade80;
+            --accent-gold: #fbbf24;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --border: #334155;
@@ -23,171 +24,98 @@
             line-height: 1.6;
         }
         
-        /* Smooth Animation Framework */
         @keyframes glowEntrance {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes borderPulse {
-            0% { border-color: var(--border); }
-            50% { border-color: var(--accent-blue); }
-            100% { border-color: var(--border); }
-        }
         
-        /* Cyber/Tech Inspired Header */
         header { 
             background: linear-gradient(180deg, #1e293b 0%, var(--bg-dark) 100%);
             border-bottom: 1px solid var(--border);
-            padding: 80px 20px; 
+            padding: 60px 20px; 
             text-align: center;
-            position: relative;
         }
-        header h1 { 
-            font-size: 3rem; 
-            color: #ffffff;
-            margin-bottom: 15px; 
-            letter-spacing: -0.5px;
-            font-weight: 800;
-        }
-        header p { 
-            font-size: 1.25rem; 
-            color: var(--accent-blue); 
-            font-weight: 400;
-            max-width: 600px;
-            margin: 0 auto 30px auto;
-        }
+        header h1 { font-size: 2.5rem; color: #ffffff; margin-bottom: 10px; font-weight: 800; }
+        header p { color: var(--accent-blue); font-size: 1.15rem; margin-bottom: 20px; }
 
-        /* Dashboard Global Print & Action Button */
-        .action-container {
-            margin-top: 10px;
-        }
+        .action-container { margin: 15px 0; }
         .btn-action {
             display: inline-block;
-            background: linear-gradient(135deg, #0284c7, #0369a1);
+            background: linear-gradient(135deg, #27ae60, #219653);
             color: white;
             padding: 14px 28px;
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
             border-radius: 8px;
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
+            box-shadow: 0 4px 12px rgba(74, 222, 128, 0.2);
         }
-        .btn-action:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
-            background: linear-gradient(135deg, #0369a1, #0284c7);
-        }
+        .btn-action:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(74, 222, 128, 0.4); }
         
-        .container { max-width: 1000px; margin: 0 auto; padding: 50px 20px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
         
-        h2 { 
-            color: #ffffff; 
-            font-size: 1.75rem; 
-            margin-bottom: 25px; 
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        h2::after {
-            content: '';
-            flex-grow: 1;
-            height: 1px;
-            background: var(--border);
-        }
+        h2 { color: #ffffff; font-size: 1.6rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        h2::after { content: ''; flex-grow: 1; height: 1px; background: var(--border); }
         
-        section { 
-            margin-bottom: 60px;
-            animation: glowEntrance 0.8s ease-out forwards;
-        }
+        section { margin-bottom: 50px; animation: glowEntrance 0.6s ease-out forwards; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         
-        /* Modernized Interactive Glass-style Cards */
         .card { 
             background: var(--bg-card); 
-            padding: 30px; 
+            padding: 25px; 
             border-radius: 12px; 
             border: 1px solid var(--border);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
         }
-        .card:hover { 
-            transform: translateY(-6px);
-            border-color: var(--accent-blue);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-        }
-        .card h3 { color: #ffffff; margin-bottom: 12px; font-size: 1.25rem; }
-        .card p { color: var(--text-muted); font-size: 0.95rem; }
+        .card:hover { transform: translateY(-4px); border-color: var(--accent-blue); }
+        .card h3 { color: #ffffff; margin-bottom: 8px; font-size: 1.2rem; }
+        .card p { color: var(--text-muted); font-size: 0.9rem; }
         
-        /* Job Timeline Nodes */
-        .job-node { 
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            position: relative;
-        }
-        .job-node:hover {
-            animation: borderPulse 2s infinite;
-        }
-        .job-header { display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 15px; }
-        .job-title { font-weight: 700; color: #ffffff; font-size: 1.2rem; }
-        .job-date { color: var(--accent-blue); font-weight: 600; font-size: 0.95rem; }
-        .job-company { color: var(--text-muted); font-style: italic; margin-bottom: 15px; font-size: 1rem; }
-        .job-node ul { margin-left: 20px; color: var(--text-muted); }
-        .job-node li { margin-bottom: 10px; font-size: 0.95rem; }
+        .job-node { background: var(--bg-card); border: 1px solid var(--border); padding: 25px; border-radius: 12px; margin-bottom: 20px; }
+        .job-header { display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 10px; }
+        .job-title { font-weight: 700; color: #ffffff; font-size: 1.15rem; }
+        .job-date { color: var(--accent-blue); font-weight: 600; font-size: 0.9rem; }
+        .job-company { color: var(--text-muted); font-style: italic; margin-bottom: 10px; }
+        .job-node ul, .section-list { margin-left: 20px; color: var(--text-muted); }
+        .job-node li, .section-list li { margin-bottom: 8px; font-size: 0.95rem; }
 
-        /* Dynamic Tech Badges */
-        .badge-hub { display: flex; flex-wrap: wrap; gap: 10px; }
         .tech-tag { 
-            background: #1e293b; 
-            color: var(--text-main); 
-            padding: 8px 16px; 
-            border-radius: 20px; 
-            font-size: 0.85rem; 
-            font-weight: 600;
-            border: 1px solid var(--border);
-            transition: all 0.2s ease;
+            display: inline-block; background: #1e293b; color: var(--text-main); padding: 6px 14px; 
+            border-radius: 20px; font-size: 0.85rem; border: 1px solid var(--border); margin: 4px;
         }
-        .tech-tag:hover {
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent-blue);
-            border-color: var(--accent-blue);
-        }
-        
         .status-chip {
-            background: rgba(74, 222, 128, 0.1);
-            color: var(--accent-green);
-            border: 1px solid rgba(74, 222, 128, 0.2);
-            padding: 4px 10px;
-            font-size: 0.75rem;
-            border-radius: 6px;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            background: rgba(56, 189, 248, 0.1); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 4px 10px; font-size: 0.75rem; border-radius: 6px; font-weight: 700; display: inline-block; margin-bottom: 10px; text-transform: uppercase;
         }
         
-        .footer { text-align: center; padding: 60px 20px; border-top: 1px solid var(--border); font-size: 0.9rem; color: var(--text-muted); }
-        .footer a { color: var(--accent-blue); text-decoration: none; margin: 0 15px; font-weight: 600; }
-        .footer a:hover { color: #ffffff; }
+        /* Private Note Box */
+        .private-note-box {
+            background: rgba(3, 105, 161, 0.15);
+            border: 1px dashed var(--accent-blue);
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+        .private-note-box h4 { color: var(--accent-blue); margin-bottom: 10px; font-size: 1.1rem; }
+        .private-note-box p { color: var(--text-main); font-size: 0.95rem; font-style: italic; }
 
-        /* Native Browser to High-Fidelity PDF Engine */
+        .footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border); font-size: 0.9rem; color: var(--text-muted); }
+        .footer a { color: var(--accent-blue); text-decoration: none; margin: 0 15px; }
+
         @media print {
             body { background: #ffffff !important; color: #000000 !important; }
             header { background: none !important; border-bottom: 2px solid #000000 !important; padding: 20px 0 !important; }
             header h1 { color: #000000 !important; }
-            header p { color: #333333 !important; }
             .action-container, .footer { display: none !important; }
             .container { max-width: 100% !important; padding: 0 !important; }
-            .card, .job-node { background: none !important; border: 1px solid #000000 !important; color: #000000 !important; page-break-inside: avoid; }
+            .card, .job-node, .private-note-box { background: none !important; border: 1px solid #000000 !important; color: #000000 !important; page-break-inside: avoid; }
+            .private-note-box h4 { color: #000000 !important; font-weight: bold; }
             h2 { color: #000000 !important; border-bottom: 1px solid #000000 !important; }
-            .tech-tag { background: none !important; border: 1px solid #000000 !important; color: #000000 !important; }
-            .status-chip { border: 1px solid #000000 !important; color: #000000 !important; }
+            .tech-tag, .status-chip { background: none !important; border: 1px solid #000000 !important; color: #000000 !important; }
         }
     </style>
 </head>
@@ -197,50 +125,66 @@
     <h1>Md. Shazzad Hossain</h1>
     <p>Strategic Operations Leader & Remote Project Governance Consultant</p>
     <div class="action-container">
-        <button class="btn-action" onclick="window.print()">📥 Export Official Verified CV (PDF)</button>
+        <button class="btn-action" onclick="window.print()">📥 Download Profile as PDF (সিভি ডাউনলোড করুন)</button>
     </div>
 </header>
 
 <div class="container">
-    <!-- Executive Blueprint -->
     <section>
         <h2>Executive Focus</h2>
         <p style="color: var(--text-muted); font-size: 1.05rem;">১২ বছরেরও বেশি সময় ধরে উচ্চ-শিক্ষা এবং প্রাতিষ্ঠানিক প্রশাসনিক কার্যক্রমে সফল নেতৃত্বের অভিজ্ঞতা সম্পন্ন একজন পেশাদার ম্যানেজার। মাল্টি-মিলিয়ন টাকার বাজেট পরিকল্পনা, সরকারি বা বৈশ্বিক কমপ্লায়েন্স ট্র্যাকিং এবং রিমোট-ফার্স্ট ডিজিটাল টুলসের (Git/GitHub, Generative AI Platforms) সমন্বয়ে প্রজেক্ট ম্যানেজমেন্টে পারদর্শী।</p>
     </section>
 
-    <!-- Global Technical Core Systems -->
     <section>
         <h2>Operational Toolkit & Core Ecosystem</h2>
-        <div class="badge-hub">
+        <div>
             <span class="tech-tag">Technical Project Management (Agile/Scrum)</span>
             <span class="tech-tag">Ecosystem Architecture (Git / GitHub Workflow)</span>
             <span class="tech-tag">AI Productivity Systems (Gemini, Grok Data Diagnostics)</span>
-            <span class="tech-badge tech-tag">Financial Oversight & Cost Controls (Multi-Tier Auditing)</span>
+            <span class="tech-tag">Financial Oversight & Cost Controls (Multi-Tier Auditing)</span>
             <span class="tech-tag">Peer Review Standards & Technical Workspace Editing</span>
             <span class="tech-tag">Vendor Contract Metrics & SLA Enforcement</span>
         </div>
     </section>
 
-    <!-- Professional Timeline Display -->
     <section>
         <h2>Corporate Trajectory</h2>
         <div class="job-node">
             <div class="job-header">
-                <span class="job-title">Senior Manager – Administration & Student Life</span>
+                <span>Senior Manager – Administration & Student Life</span>
                 <span class="job-date">Nov 2012 – Nov 2024 (12 years)</span>
             </div>
             <div class="job-company">BRAC University, Dhaka</div>
             <ul>
                 <li>বিশ্ববিদ্যালয়ের সরকারি ইউজিসি (UGC) কমপ্লায়েন্স নীতি এবং প্রাতিষ্ঠানিক প্রশাসনিক কার্যাবলী সরাসরি পরিচালনা করেছেন।</li>
                 <li>বিভাগীয় বার্ষিক বাজেট সফলভাবে প্রণয়ন, পর্যবেক্ষণ এবং সম্পূর্ণ আর্থিক অডিট পরিচালনা করেছেন।</li>
-                <li>যুগান্তকারী আন্তর্জাতিক এবং জাতীয় প্রোগ্রামগুলোর সম্পূর্ণ ভেন্ডর লজিস্টিকস এবং টিম ম্যানেজমেন্ট পরিচালনা করেছেন।</li>
+                <li>Flagship আন্তর্জাতিক এবং জাতীয় প্রোগ্রামগুলোর সম্পূর্ণ ভেন্ডর লজিস্টিকস এবং টিম ম্যানেজমেন্ট পরিচালনা করেছেন।</li>
             </ul>
         </div>
     </section>
 
-    <!-- Scholarly & Remote Consulting Grid -->
-    <section>
-        <h2>Global Endorsements & Thought Leadership</h2>
+    <!-- নতুন কাস্টম প্রজেক্ট ও অরিজিনাল সার্টিফিকেট সেকশন -->
+    <section id="certificates">
+        <h2>Original Certificates & Assessments</h2>
         <div class="grid">
             <div class="card">
-                <span class="status-chip">Global Appointment</span>
+                <span class="status-chip">Commercial Project</span>
+                <h3>Coffee Brand Identity & Management</h3>
+                <p style="margin-bottom: 10px; color: var(--accent-blue); font-size: 0.85rem;">Original Track Validation</p>
+                <p>কফি ব্র্যান্ড সাপ্লাই চেইন, অপারেশনাল লজিস্টিকস এবং স্বতন্ত্র ব্র্যান্ড প্রমোশনের জন্য প্রাতিষ্ঠানিক ও বাস্তবমুখী দক্ষতার স্বীকৃতিপত্র।</p>
+            </div>
+            <div class="card">
+                <span class="status-chip">Research Excellence</span>
+                <h3>Quality Journal Publication Award</h3>
+                <p style="margin-bottom: 10px; color: var(--accent-blue); font-size: 0.85rem;">BRAC University Ceremony</p>
+                <p>উচ্চমানের জার্নাল পাবলিকেশন এবং কোয়ালিটি নিশ্চিতকরণের লক্ষ্যে ব্র্যাক ইউনিভার্সিটি আয়োজিত "Promoting Research Excellence" সম্মাননাপ্রাপ্ত।</p>
+            </div>
+            <div class="card">
+                <span class="status-chip">Financial Governance</span>
+                <h3>Government Tax Assessment Track</h3>
+                <p style="margin-bottom: 10px; color: var(--accent-blue); font-size: 0.85rem;">NBR Compliance</p>
+                <p>জাতীয় রাজস্ব বোর্ড (NBR) কর্তৃক নিরীক্ষিত এবং কমপ্লায়েন্স নিশ্চিতকৃত বার্ষিক ট্যাক্স অ্যাসেসমেন্ট এবং প্রাতিষ্ঠানিক স্বচ্ছতার আর্থিক প্রমাণপত্র।</p>
+            </div>
+            <div class="card">
+                <span class="status-chip">Global Editorial</span>
+                <h3>International Manuscript Reviewer</h3>
