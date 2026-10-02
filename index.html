@@ -1,62 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Md. Shazzad Hossain — Administration, Student Life & Event Management Professional">
   <title>Md. Shazzad Hossain | Administration & Student Life Professional</title>
-
-  <meta
-    name="description"
-    content="Professional portfolio of Md. Shazzad Hossain — Senior Administration, Student Life, Event Management and Project Coordination professional."
-  />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
-
     :root {
-      --bg: #07111f;
-      --bg-soft: #0d1b2e;
-      --card: rgba(255,255,255,0.055);
-      --card-border: rgba(255,255,255,0.10);
-      --text: #f4f7fb;
-      --muted: #aab7c8;
-      --accent: #d9b56d;
-      --accent-light: #f2d79d;
-      --blue: #5fa8ff;
-      --white: #ffffff;
-      --max: 1180px;
-      --radius: 22px;
+      --navy: #081525;
+      --navy-2: #0d1d31;
+      --card: #10243b;
+      --gold: #d6b36a;
+      --gold-light: #efd89d;
+      --white: #f8fafc;
+      --muted: #aeb9c8;
+      --line: rgba(255,255,255,.10);
+      --shadow: 0 18px 45px rgba(0,0,0,.22);
+      --radius: 18px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: "Inter", sans-serif;
-      background:
-        radial-gradient(circle at 80% 10%, rgba(95,168,255,.13), transparent 28%),
-        radial-gradient(circle at 10% 30%, rgba(217,181,109,.08), transparent 25%),
-        var(--bg);
-      color: var(--text);
+      background: var(--navy);
+      color: var(--white);
       line-height: 1.7;
+      overflow-x: hidden;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     img {
       max-width: 100%;
@@ -64,28 +44,22 @@
     }
 
     .container {
-      width: min(92%, var(--max));
-      margin: auto;
+      width: min(1120px, 92%);
+      margin: 0 auto;
     }
 
-
-    /* ================================
-       NAVBAR
-       ================================ */
-
-    header {
-      position: fixed;
+    /* ---------- NAVBAR ---------- */
+    .navbar {
+      position: sticky;
       top: 0;
-      left: 0;
-      width: 100%;
       z-index: 1000;
-      background: rgba(7,17,31,.78);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(255,255,255,.07);
+      background: rgba(8,21,37,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
     }
 
-    nav {
-      min-height: 76px;
+    .nav-inner {
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -94,59 +68,1116 @@
 
     .brand {
       font-weight: 800;
-      font-size: 20px;
-      letter-spacing: -.5px;
+      letter-spacing: .04em;
+      font-size: 1.05rem;
     }
 
-    .brand span {
-      color: var(--accent);
-    }
+    .brand span { color: var(--gold); }
 
     .nav-links {
       display: flex;
-      gap: 26px;
+      align-items: center;
+      gap: 24px;
       list-style: none;
-      font-size: 14px;
-      color: var(--muted);
     }
 
-    .nav-links a:hover {
-      color: var(--white);
+    .nav-links a {
+      color: var(--muted);
+      font-size: .9rem;
+      transition: color .25s ease;
     }
+
+    .nav-links a:hover { color: var(--gold-light); }
 
     .menu-btn {
       display: none;
+      border: 1px solid var(--line);
       background: transparent;
-      border: 0;
-      color: white;
-      font-size: 28px;
+      color: var(--white);
+      padding: 8px 11px;
+      border-radius: 9px;
       cursor: pointer;
+      font-size: 1.1rem;
     }
 
-
-    /* ================================
-       HERO
-       ================================ */
-
+    /* ---------- HERO ---------- */
     .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 130px 0 80px;
+      min-height: 86vh;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      right: -180px;
+      top: -180px;
+      border-radius: 50%;
+      background: rgba(214,179,106,.08);
+      filter: blur(2px);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.25fr .75fr;
       align-items: center;
       gap: 70px;
+      padding: 90px 0;
     }
 
     .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .78rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.8rem, 7vw, 5.4rem);
+      line-height: 1.02;
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      color: var(--gold-light);
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      max-width: 690px;
+      font-size: 1.02rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-      padding: 7px 13px;
-      border: 1px solid rgba(217,181,109,.25);
-      border-radius: 50px;
-      color: var(--
+      justify-content: center;
+      padding: 12px 19px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: .9rem;
+      border: 1px solid var(--line);
+      transition: transform .25s ease, background .25s ease, border-color .25s ease;
+    }
+
+    .btn:hover { transform: translateY(-3px); }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #101820;
+      border-color: var(--gold);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.03);
+      color: var(--white);
+    }
+
+    .profile-card {
+      background: linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
+      border: 1px solid var(--line);
+      padding: 16px;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      transition: transform .35s ease, box-shadow .35s ease;
+      animation: profileIn 1s cubic-bezier(.22,.61,.36,1) .15s both;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 60px rgba(0,0,0,.3);
+    }
+
+    .profile-card img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    @keyframes profileIn {
+      from { opacity: 0; transform: scale(.94) translateY(15px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .hero .eyebrow,
+    .hero h1,
+    .hero .hero-title,
+    .hero .hero-description,
+    .hero .buttons {
+      animation: heroFadeUp .8s cubic-bezier(.22,.61,.36,1) both;
+    }
+
+    .hero h1 { animation-delay: .08s; }
+    .hero .hero-title { animation-delay: .16s; }
+    .hero .hero-description { animation-delay: .24s; }
+    .hero .buttons { animation-delay: .32s; }
+
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---------- GENERAL ---------- */
+    section {
+      padding: 100px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 46px;
+    }
+
+    .section-kicker {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: .76rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-heading h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .75s ease, transform .75s cubic-bezier(.22,.61,.36,1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---------- STATS ---------- */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 24px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      transition: transform .25s ease, border-color .25s ease;
+    }
+
+    .stat:hover {
+      transform: translateY(-5px);
+      border-color: rgba(214,179,106,.45);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--gold-light);
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    .stat span { color: var(--muted); font-size: .9rem; }
+
+    /* ---------- ABOUT ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+    }
+
+    .card {
+      background: rgba(255,255,255,.035);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      transition: transform .28s ease, border-color .28s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(214,179,106,.4);
+    }
+
+    .card h3 {
+      color: var(--gold-light);
+      margin-bottom: 12px;
+      font-size: 1.15rem;
+    }
+
+    .card p, .card li { color: var(--muted); }
+
+    .card ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    /* ---------- EXPERIENCE ---------- */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+      border-left: 1px solid rgba(214,179,106,.35);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 35px 25px;
+    }
+
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -34px;
+      top: 7px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 5px rgba(214,179,106,.10);
+    }
+
+    .timeline-date {
+      color: var(--gold);
+      font-size: .82rem;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .timeline h3 { font-size: 1.35rem; margin-bottom: 4px; }
+
+    .timeline-company {
+      color: var(--gold-light);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .timeline ul {
+      padding-left: 19px;
+      color: var(--muted);
+    }
+
+    /* ---------- FEATURED ---------- */
+    .featured {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .featured-media {
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--card);
+      min-height: 360px;
+    }
+
+    .featured-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+
+    .featured:hover .featured-media img { transform: scale(1.035); }
+
+    .featured-content {
+      background: rgba(255,255,255,.035);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 34px;
+    }
+
+    .featured-content h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .featured-content p {
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .tag {
+      display: inline-block;
+      color: var(--gold-light);
+      border: 1px solid rgba(214,179,106,.35);
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-size: .76rem;
+      font-weight: 700;
+      margin: 3px 4px 3px 0;
+    }
+
+    /* ---------- SKILLS ---------- */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      background: rgba(255,255,255,.035);
+      border: 1px solid var(--line);
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      transition: transform .22s ease, color .22s ease, border-color .22s ease;
+    }
+
+    .skill:hover {
+      transform: translateY(-3px);
+      color: var(--gold-light);
+      border-color: rgba(214,179,106,.4);
+    }
+
+    /* ---------- EDUCATION / TRAINING ---------- */
+    .education, .training-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .training-grid { grid-template-columns: repeat(3, 1fr); }
+
+    .meta {
+      color: var(--gold);
+      font-size: .8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 8px;
+    }
+
+    /* ---------- GALLERY ---------- */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .gallery-card {
+      overflow: hidden;
+      border-radius: 15px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      min-height: 250px;
+      position: relative;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 250px;
+      object-fit: cover;
+      transition: transform .45s ease, filter .45s ease;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.06);
+      filter: brightness(.72);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 18px 15px;
+      background: linear-gradient(transparent, rgba(0,0,0,.88));
+      transform: translateY(12px);
+      opacity: .95;
+      transition: transform .35s ease;
+    }
+
+    .gallery-card:hover .gallery-caption { transform: translateY(0); }
+
+    .gallery-caption strong {
+      display: block;
+      font-size: .92rem;
+      margin-bottom: 3px;
+    }
+
+    .gallery-caption span {
+      color: #d5dbe4;
+      font-size: .75rem;
+    }
+
+    /* ---------- PUBLICATION / CONTACT ---------- */
+    .publication, .contact-box {
+      background: rgba(255,255,255,.035);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 34px;
+    }
+
+    .publication h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .publication p, .contact-box p {
+      color: var(--muted);
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .contact-list strong { color: var(--white); }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      padding: 30px 0;
+      color: var(--muted);
+      font-size: .85rem;
+      text-align: center;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .featured,
+      .contact-box,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid { gap: 45px; }
+
+      .profile-card {
+        max-width: 430px;
+        margin: 0 auto;
+      }
+
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+      .training-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .menu-btn { display: block; }
+
+      .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 4%;
+        right: 4%;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px;
+        background: rgba(8,21,37,.98);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.active { display: flex; }
+
+      .nav-links a {
+        display: block;
+        padding: 12px 14px;
+      }
+
+      section { padding: 75px 0; }
+
+      .hero { min-height: auto; }
+
+      .hero-grid { padding: 75px 0; }
+
+      .stats,
+      .education,
+      .training-grid,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-card,
+      .gallery-card img {
+        min-height: 280px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">MD. SHAZZAD <span>HOSSAIN</span></a>
+
+      <button class="menu-btn" aria-label="Open navigation menu" onclick="toggleMenu()">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#achievement">Achievement</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Administration • Student Life • Event Management</div>
+        <h1>Md. Shazzad Hossain</h1>
+        <div class="hero-title">Senior Administration & Student Life Professional</div>
+        <p class="hero-description">
+          Higher-education professional with over 12 years of experience in administration,
+          student life, event management, budgeting, logistics, stakeholder coordination and team leadership.
+        </p>
+
+        <div class="buttons">
+          <a class="btn btn-primary" href="Md-Shazzad-Hossain-CV.pdf" download>Download Official CV</a>
+          <a class="btn btn-secondary" href="#experience">Explore Experience</a>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <img src="profile.jpg" alt="Md. Shazzad Hossain">
+      </div>
+    </div>
+  </header>
+
+  <!-- STATS -->
+  <section>
+    <div class="container">
+      <div class="stats reveal">
+        <div class="stat">
+          <strong>12+</strong>
+          <span>Years of professional experience</span>
+        </div>
+        <div class="stat">
+          <strong>12 Years</strong>
+          <span>Experience at BRAC University</span>
+        </div>
+        <div class="stat">
+          <strong>100–150</strong>
+          <span>Students supported in Award Journey activities</span>
+        </div>
+        <div class="stat">
+          <strong>Gold</strong>
+          <span>Duke of Edinburgh’s International Award</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="section-kicker">About Me</div>
+        <h2>Administration with a strong focus on people, programmes and execution.</h2>
+        <p>
+          My professional background combines higher-education administration, student life,
+          event management, logistics, budgeting, stakeholder coordination and team leadership.
+        </p>
+      </div>
+
+      <div class="about-grid reveal">
+        <div class="card">
+          <h3>Professional Profile</h3>
+          <p>
+            I have worked across administrative and student-life functions, supporting
+            student clubs and societies, institutional programmes, events, budgeting,
+            financial documentation and cross-department coordination.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>What I Bring</h3>
+          <ul>
+            <li>Structured administration and office management</li>
+            <li>Event planning and end-to-end execution</li>
+            <li>Student engagement and club management</li>
+            <li>Budget preparation and financial documentation</li>
+            <li>Stakeholder, vendor and logistics coordination</li>
+            <li>Team leadership and service culture</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="section-kicker">Professional Experience</div>
+        <h2>A 12-year journey at BRAC University.</h2>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="timeline-item">
+          <div class="timeline-date">November 2012 — November 2024</div>
+          <h3>Senior Manager — Administration & Student Life</h3>
+          <div class="timeline-company">BRAC University, Dhaka</div>
+
+          <ul>
+            <li>Managed student clubs and societies and supported UGC-recommended national events.</li>
+            <li>Prepared and controlled departmental annual budgets and financial documentation.</li>
+            <li>Planned and executed Student Life programmes, including freshmen orientation.</li>
+            <li>Coordinated internal teams and external stakeholders for programme delivery.</li>
+            <li>Supported budgeting, event logistics and financial management across departments.</li>
+            <li>Led operational aspects of the Duke of Edinburgh Award Journey, including database and budget management, student/staff coordination, venue arrangements and communication.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED ACHIEVEMENT -->
+  <section id="achievement">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="section-kicker">Featured Achievement</div>
+        <h2>Freshers’ Orientation 2023 — End-to-End Event Management</h2>
+      </div>
+
+      <div class="featured reveal">
+        <div class="featured-media">
+          <img src="freshers-orientation-2023.jpg" alt="Freshers' Orientation 2023 at BRAC University">
+        </div>
+
+        <div class="featured-content">
+          <span class="tag">BRAC University</span>
+          <span class="tag">Event Management</span>
+          <span class="tag">Student Life</span>
+
+          <h3>From planning to execution.</h3>
+
+          <p>
+            Led the planning and execution of BRAC University's Freshers' Orientation,
+            coordinating budgeting, approvals, programme planning, monitoring, student
+            management, catering, outsourcing and overall event operations.
+          </p>
+
+          <p>
+            This programme represents a significant example of end-to-end responsibility
+            across planning, coordination, operations and student experience.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL RECOGNITION -->
+  <section>
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="section-kicker">Professional Recognition</div>
+        <h2>Academic contribution beyond the workplace.</h2>
+      </div>
+
+      <div class="featured reveal">
+        <div class="featured-media">
+          <img src="manuscript-reviewer-certificate.jpg" alt="Manuscript reviewer certificate">
+        </div>
+
+        <div class="featured-content">
+          <span class="tag">Journal Reviewer</span>
+          <span class="tag">Academic Contribution</span>
+
+          <h3>Manuscript Reviewer</h3>
+
+          <p>
+            Invited to serve as a manuscript reviewer for the
+            <strong>Journal of Service Science and Management</strong>,
+            contributing professional feedback to the academic review process.
+          </p>
+
+          <p>
+            Certificate dated <strong>12 December 2025</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DUKE AWARD -->
+  <section>
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="section-kicker">Leadership & Social Impact</div>
+        <h2>Duke of Edinburgh’s International Award</h2>
+      </div>
+
+      <div class="about-grid reveal">
+        <div class="card">
+          <h3>Gold Standard Award</h3>
+          <p>
+            Gold Standard Award from the Duke of Edinburgh’s International Award,
+            Bangladesh, issued on 9 September 2013, including completion of the
+            Gold Residential Project.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Operational Leadership</h3>
+          <p>
+            Coordinated the Award Journey for students, including database and budget
+            management, student/staff coordination, venue arrangements and communication.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="section-kicker">Core Competencies</div>
+        <h2>Practical skills built through years of execution.</h2>
+      </div>
+
+      <div class="skills reveal">
+        <span class="skill">Administration & Office Management</span>
+        <span class="skill">Student Life Management</span>
+        <span class="skill">Event Management</span>
+        <span class="skill">Project Management</span>
+        <span class="skill">Annual Budget Preparation</span>
+        <span class="skill">Financial Documentation</span>
+        <span class="skill">Stakeholder Coordination</span>
+        <span class="skill">Logistics Management</span>
+        <span class="skill">Team Leadership</span>
+        <span class="skill">Student Club Management</span>
+        <span class="skill">Vendor Coordination</span>
+        <span class="skill">Project Monitoring</span>
+        <span class="skill">Service Culture</span>
+        <span class="skill">Customer Relations</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="section-kicker">Education</div>
+        <h2>Academic foundation.</h2>
+      </div>
+
+      <div class="education reveal">
+        <div class="card">
+          <div class="meta">2019</div>
+          <h3>Executive MBA (EMBA), Marketing</h3>
+          <p>BRAC University</p>
+          <p>CGPA: 3.17 / 4.00</p>
+        </div>
+
+        <div class="card">
+          <div class="meta">2012</div>
+          <h3>BBA, Marketing</h3>
+          <p>University of Liberal Arts Bangladesh (ULAB)</p>
+          <p>CGPA: 3.33 / 4.00</p>
+        </div>
+
+        <div class="card">
+          <div class="meta">2007</div>
+          <h3>HSC, Business Studies</h3>
+          <p>Dhaka Imperial College</p>
+          <p>CGPA: 4.63 / 5.00</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINING -->
+  <section>
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="section-kicker">Training & Development</div>
+        <h2>Continuous professional development.</h2>
+      </div>
+
+      <div class="training-grid reveal">
+        <div class="card">
+          <div class="meta">2016</div>
+          <h3>Building an Effective Service Culture</h3>
+          <p>BRAC University · 1 day</p>
+        </div>
+
+        <div class="card">
+          <div class="meta">2016</div>
+          <h3>Building the Transactional Leader</h3>
+          <p>Leadership building & teamwork capability · BRAC University · 2 days</p>
+        </div>
+
+        <div class="card">
+          <div class="meta">2012–2013</div>
+          <h3>Gold Standard — Duke of Edinburgh’s International Award</h3>
+          <p>Residential project completed in India.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section>
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="section-kicker">Leadership & Activities</div>
+        <h2>People, participation and community.</h2>
+      </div>
+
+      <div class="about-grid reveal">
+        <div class="card">
+          <h3>Founder & Advisor — BRAC University House of Talents</h3>
+          <p>
+            A leadership and student-engagement initiative reflecting a continued
+            commitment to developing student participation and talent.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Volunteer — Project Hashi Mukh</h3>
+          <p>
+            Community-oriented volunteer involvement supporting social impact activities.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="section-kicker">Professional Gallery</div>
+        <h2>Selected moments from professional life.</h2>
+        <p>
+          A visual record of leadership, student engagement, professional development and teamwork.
+        </p>
+      </div>
+
+      <div class="gallery reveal">
+        <div class="gallery-card">
+          <img src="student-leadership-club-program.jpg" alt="Student leadership and club programme">
+          <div class="gallery-caption">
+            <strong>Student Leadership & Club Engagement</strong>
+            <span>Motivational and guidance session with student club members.</span>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="strategic-leadership-seminar.jpg" alt="Strategic leadership development seminar">
+          <div class="gallery-caption">
+            <strong>Strategic Leadership Development</strong>
+            <span>Two-day strategic leadership and teamwork development programme.</span>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="brac-university-engagement.jpg" alt="BRAC University engagement">
+          <div class="gallery-caption">
+            <strong>University Community Engagement</strong>
+            <span>Institutional engagement, teamwork and stakeholder interaction.</span>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="leadership-public-speaking.jpg" alt="Leadership public speaking programme">
+          <div class="gallery-caption">
+            <strong>Leadership & Public Speaking</strong>
+            <span>Speaking with students during a leadership-focused programme.</span>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="professional-connection.jpg" alt="Professional connection">
+          <div class="gallery-caption">
+            <strong>Professional Connection</strong>
+            <span>A memorable professional moment reflecting workplace collaboration.</span>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="team-leadership-recognition.jpg" alt="Team leadership and recognition">
+          <div class="gallery-caption">
+            <strong>Team Leadership & Recognition</strong>
+            <span>A team gathering celebrating a career milestone.</span>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="freshers-orientation-2023.jpg" alt="Freshers orientation 2023">
+          <div class="gallery-caption">
+            <strong>Freshers’ Orientation 2023</strong>
+            <span>End-to-end event management and student experience.</span>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="manuscript-reviewer-certificate.jpg" alt="Manuscript reviewer certificate">
+          <div class="gallery-caption">
+            <strong>Journal Reviewer Recognition</strong>
+            <span>Journal of Service Science and Management · 2025.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATION -->
+  <section>
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="section-kicker">Publication</div>
+        <h2>Writing and professional knowledge sharing.</h2>
+      </div>
+
+      <div class="publication reveal">
+        <h3>Emerging and Ongoing Opportunities of Artificial Intelligence (AI) and Challenges for Corporate Employees</h3>
+        <p>
+          Published on Medium. The article explores emerging opportunities associated
+          with Artificial Intelligence and challenges relevant to corporate employees.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="section-kicker">Contact</div>
+        <h2>Open to professional opportunities and meaningful collaboration.</h2>
+      </div>
+
+      <div class="contact-box reveal">
+        <div>
+          <p>
+            For professional opportunities, administration and operations roles,
+            event management, student-life leadership or related collaboration,
+            please feel free to get in touch.
+          </p>
+
+          <div class="buttons">
+            <a class="btn btn-primary" href="mailto:just.shazzad@gmail.com">Email Me</a>
+            <a class="btn btn-secondary" href="Md-Shazzad-Hossain-CV.pdf" download>Download CV</a>
+          </div>
+        </div>
+
+        <div class="contact-list">
+          <div><strong>Email:</strong> just.shazzad@gmail.com</div>
+          <div><strong>LinkedIn:</strong> linkedin.com/in/shazzad-hossain-8b422568</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2026 Md. Shazzad Hossain. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("active");
+      });
+    });
+
+    const revealElements = document.querySelectorAll(
+      ".section-heading, .stats, .about-grid, .timeline, .featured, .skills, .education, .training-grid, .publication, .contact-box, .gallery"
+    );
+
+    revealElements.forEach(element => {
+      element.classList.add("reveal");
+    });
+
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -50px 0px"
+      }
+    );
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
