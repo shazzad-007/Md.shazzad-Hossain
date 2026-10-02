@@ -1254,6 +1254,8 @@
 
 
   <script>
+      <script>
+
     function toggleMenu() {
       document.getElementById("navLinks").classList.toggle("active");
     }
@@ -1263,6 +1265,52 @@
         document.getElementById("navLinks").classList.remove("active");
       });
     });
+
+
+    /* ================================
+       SCROLL REVEAL
+       ================================ */
+
+    const revealElements = document.querySelectorAll(
+      ".section-heading, .stats, .about-grid, .timeline, .award-feature, .skills, .education, .training-grid, .publication, .contact-box, .gallery"
+    );
+
+    revealElements.forEach(element => {
+      element.classList.add("reveal");
+    });
+
+
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("visible");
+
+            observer.unobserve(entry.target);
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -50px 0px"
+      }
+    );
+
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+
+  </script>
+
+</body>
+</html>
   </script>
 
 </body>
