@@ -9,8 +9,154 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 
-  <style>
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+/* ---------- DUKE AWARD ---------- */
+
+.duke-award-layout {
+  display: grid;
+  grid-template-columns: .95fr 1.05fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+.duke-certificate-card {
+  position: relative;
+  background: rgba(255,255,255,.035);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+.duke-certificate-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(214,179,106,.45);
+  box-shadow: 0 25px 60px rgba(0,0,0,.28);
+}
+
+.certificate-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 14px;
+  color: var(--gold);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.duke-certificate-image {
+  overflow: hidden;
+  border-radius: 13px;
+  background: #fff;
+  border: 1px solid rgba(214,179,106,.25);
+}
+
+.duke-certificate-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform .5s ease;
+}
+
+.duke-certificate-card:hover .duke-certificate-image img {
+  transform: scale(1.025);
+}
+
+.certificate-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 16px 3px 2px;
+}
+
+.certificate-footer strong {
+  color: var(--white);
+  font-size: .95rem;
+}
+
+.certificate-footer span {
+  color: var(--muted);
+  font-size: .78rem;
+}
+
+.duke-award-info {
+  display: grid;
+  gap: 18px;
+}
+
+.duke-info-card {
+  height: 100%;
+}
+
+.duke-info-card h3 {
+  font-size: 1.3rem;
+}
+
+.duke-info-card p {
+  line-height: 1.8;
+}
+
+.duke-tags {
+  margin-top: 18px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  .duke-award-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .duke-certificate-card {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .duke-certificate-card {
+    padding: 12px;
+  }
+
+  .certificate-label {
+    font-size: .68rem;
+  }
+
+  .certificate-footer {
+    padding-top: 13px;
+  }
+
+  .duke-info-card {
+    padding: 24px;
+  }
+}
+
+</style>
     :root {
       --navy: #081525;
       --navy-2: #0d1d31;
@@ -862,33 +1008,78 @@
   </section>
 
   <!-- DUKE AWARD -->
-  <section>
-    <div class="container">
-      <div class="section-heading reveal">
-        <div class="section-kicker">Leadership & Social Impact</div>
-        <h2>Duke of Edinburgh’s International Award</h2>
+<section>
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <div class="section-kicker">Leadership & Social Impact</div>
+      <h2>Duke of Edinburgh’s International Award</h2>
+      <p>
+        A recognised achievement reflecting leadership, personal development,
+        community service and student programme coordination.
+      </p>
+    </div>
+
+    <div class="duke-award-layout reveal">
+
+      <!-- CERTIFICATE -->
+      <div class="duke-certificate-card">
+        <div class="certificate-label">
+          <span>GOLD STANDARD</span>
+          <span>2013</span>
+        </div>
+
+        <div class="duke-certificate-image">
+          <img
+            src="duke-gold-certificate.jpg"
+            alt="Gold Standard Certificate from The Duke of Edinburgh’s International Award, Bangladesh"
+          >
+        </div>
+
+        <div class="certificate-footer">
+          <strong>The Duke of Edinburgh’s International Award</strong>
+          <span>Bangladesh · Gold Standard Award</span>
+        </div>
       </div>
 
-      <div class="about-grid reveal">
-        <div class="card">
+      <!-- INFORMATION -->
+      <div class="duke-award-info">
+
+        <div class="card duke-info-card">
+          <div class="meta">Gold Standard Award · 9 September 2013</div>
+
           <h3>Gold Standard Award</h3>
+
           <p>
             Gold Standard Award from the Duke of Edinburgh’s International Award,
             Bangladesh, issued on 9 September 2013, including completion of the
             Gold Residential Project.
           </p>
+
+          <div class="duke-tags">
+            <span class="tag">Gold Standard</span>
+            <span class="tag">Leadership</span>
+            <span class="tag">Community Service</span>
+            <span class="tag">Residential Project</span>
+          </div>
         </div>
 
-        <div class="card">
+        <div class="card duke-info-card">
           <h3>Operational Leadership</h3>
+
           <p>
-            Coordinated the Award Journey for students, including database and budget
-            management, student/staff coordination, venue arrangements and communication.
+            Coordinated the Award Journey for students, including database and
+            budget management, student/staff coordination, venue arrangements
+            and communication.
           </p>
         </div>
+
       </div>
+
     </div>
-  </section>
+
+  </div>
+</section>
 
   <!-- SKILLS -->
   <section id="skills">
