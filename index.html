@@ -439,90 +439,145 @@
       font-weight: 700;
       margin: 3px 4px 3px 0;
     }
-/* ---------- DUKE AWARD CERTIFICATE ---------- */
 
-.duke-award {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 28px;
-  align-items: stretch;
-}
-
-.duke-certificate {
-  background: rgba(255,255,255,.035);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 18px;
+/* ---------- DUKE AWARD SHOWCASE ---------- */
+.duke-showcase {
+  position: relative;
   overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+  padding: 65px 0;
+  background:
+    radial-gradient(ellipse at 15% 80%, rgba(214,179,106,.09), transparent 35%),
+    linear-gradient(135deg, #061326, #0a1c35 55%, #061226);
+  border-bottom: 1px solid rgba(255,255,255,.1);
 }
 
-.duke-certificate:hover {
-  transform: translateY(-6px);
-  border-color: rgba(214,179,106,.45);
-  box-shadow: 0 25px 55px rgba(0,0,0,.28);
+.duke-showcase .section-heading {
+  max-width: 100%;
+  margin-bottom: 28px;
 }
 
-.duke-certificate img {
+.duke-showcase .section-kicker {
+  color: #efd080;
+}
+
+.duke-showcase .section-heading h2 {
+  max-width: 720px;
+}
+
+.duke-showcase .duke-layout {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 35px;
+  align-items: center;
+}
+
+.duke-showcase .duke-description {
+  color: #c6d2e3;
+  margin: 18px 0;
+  max-width: 620px;
+}
+
+.duke-showcase .duke-summary {
+  padding: 25px;
+  border: 1px solid rgba(214,179,106,.42);
+  border-radius: 20px;
+  background: rgba(9,30,58,.78);
+  box-shadow: 0 15px 40px rgba(0,0,0,.2);
+}
+
+.duke-showcase .duke-summary h3,
+.duke-showcase .duke-leadership h3 {
+  color: #efd080;
+  font-family: "Playfair Display", serif;
+  font-size: 1.65rem;
+  margin-bottom: 10px;
+}
+
+.duke-showcase .duke-summary p,
+.duke-showcase .duke-leadership p {
+  color: #c6d2e3;
+}
+
+.duke-showcase .duke-facts {
+  display: grid;
+  gap: 13px;
+  margin-top: 20px;
+}
+
+.duke-showcase .duke-fact strong {
+  display: block;
+  color: #75b7ff;
+  font-size: .85rem;
+}
+
+.duke-showcase .duke-fact span {
+  color: #f8fafc;
+}
+
+.duke-showcase .duke-certificate {
+  padding: 15px;
+  border-radius: 24px;
+  border: 1px solid rgba(214,179,106,.6);
+  background: rgba(255,255,255,.04);
+  box-shadow: 0 20px 55px rgba(0,0,0,.35);
+  min-width: 0;
+}
+
+.duke-showcase .duke-certificate img {
+  display: block;
   width: 100%;
   height: auto;
-  max-height: 620px;
+  max-height: 650px;
   object-fit: contain;
-  border-radius: 12px;
+  object-position: center;
   background: #fff;
-  transition: transform .45s ease;
+  border-radius: 12px;
 }
 
-.duke-certificate:hover img {
-  transform: scale(1.015);
-}
-
-.duke-info {
+.duke-showcase .duke-leadership {
   display: grid;
-  gap: 18px;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: center;
+  margin-top: 30px;
+  padding: 27px;
+  border: 1px solid rgba(60,139,225,.45);
+  border-radius: 20px;
+  background: rgba(7,29,58,.8);
 }
 
-.duke-info .card {
-  height: 100%;
+.duke-showcase .duke-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
 }
 
-.duke-badge {
-  display: inline-block;
-  color: var(--gold-light);
-  border: 1px solid rgba(214,179,106,.35);
-  padding: 6px 11px;
+.duke-showcase .duke-tags span {
+  color: #dbeafe;
+  border: 1px solid rgba(96,165,250,.35);
+  background: rgba(37,99,180,.17);
   border-radius: 999px;
-  font-size: .75rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  margin-bottom: 12px;
+  padding: 7px 12px;
+  font-size: .8rem;
 }
 
-.duke-date {
-  color: var(--gold);
-  font-weight: 700;
-  margin-top: 10px;
-}
+@media (max-width: 800px) {
+  .duke-showcase {
+    padding: 48px 0;
+  }
 
-.duke-note {
-  color: var(--muted);
-  font-size: .9rem;
-  margin-top: 12px;
-}
-
-@media (max-width: 900px) {
-  .duke-award {
+  .duke-showcase .duke-layout,
+  .duke-showcase .duke-leadership {
     grid-template-columns: 1fr;
   }
 
-  .duke-certificate {
+  .duke-showcase .duke-certificate {
     max-width: 620px;
+    width: 100%;
     margin: 0 auto;
   }
 
-  .duke-certificate img {
+  .duke-showcase .duke-certificate img {
     max-height: 720px;
   }
 }
@@ -947,48 +1002,74 @@
     </div>
   </section>
 
-<!-- DUKE AWARD -->
-<section id="experience">
+<!-- DUKE AWARD SHOWCASE -->
+<section id="award" class="duke-showcase">
   <div class="container">
 
-    <div class="section-heading reveal">
-      <div class="section-kicker">Leadership & Social Impact</div>
+    <div class="section-heading">
+      <div class="section-kicker">Leadership &amp; Social Impact</div>
       <h2>Duke of Edinburgh’s International Award</h2>
-      <p>
-        A recognised achievement reflecting personal development,
-        leadership, service and commitment beyond the workplace.
+      <p class="duke-description">
+        Coordinated the Duke of Edinburgh’s International Award programme
+        at BRAC University, guiding and supporting young people through
+        personal development, leadership and experiential activities.
       </p>
     </div>
 
-    <div class="duke-award reveal">
+    <div class="duke-layout">
 
-      <!-- CERTIFICATE -->
-      <div class="duke-certificate">
-        <img src="duke-gold-certificate.jpg?v=2" alt="Gold Standard Certificate — The Duke of Edinburgh’s International Award">
-      </div>
+      <div class="duke-summary">
+        <h3>Gold Standard Award</h3>
+        <p>
+          Recognised for achieving the Gold Standard under the Duke of
+          Edinburgh’s International Award programme.
+        </p>
 
-      <!-- INFORMATION -->
-      <div class="duke-info">
-        <div class="card">
-          <span class="duke-badge">Gold Standard Award</span>
-          <h3>Gold Standard Award</h3>
-          <p>
-            Gold Standard Award from the Duke of Edinburgh’s
-            International Award, Bangladesh, issued on
-            9 September 2013, including completion of the
-            Gold Residential Project.
-          </p>
-          <p class="duke-date">
-            Award Date: 9 September 2013
-          </p>
-          <p class="duke-note">
-            The original certificate is displayed alongside
-            the achievement details for verification and
-            professional presentation.
-          </p>
+        <div class="duke-facts">
+          <div class="duke-fact">
+            <strong>Date</strong>
+            <span>9 September 2013</span>
+          </div>
+
+          <div class="duke-fact">
+            <strong>Students Coordinated</strong>
+            <span>Approximately 100–150 students</span>
+          </div>
+
+          <div class="duke-fact">
+            <strong>Award Level</strong>
+            <span>Gold</span>
+          </div>
         </div>
       </div>
 
+      <div class="duke-certificate">
+        <img
+          src="duke-gold-certificate.jpg"
+          alt="Md. Shazzad Hossain's Duke of Edinburgh's International Award Gold Standard certificate"
+          loading="eager"
+        >
+      </div>
+
+    </div>
+
+    <div class="duke-leadership">
+      <div>
+        <h3>Operational Leadership</h3>
+        <p>
+          Led and coordinated Award Journey activities, including
+          logistics, stakeholder engagement, student coordination
+          and programme implementation.
+        </p>
+      </div>
+
+      <div class="duke-tags">
+        <span>✓ Community Service</span>
+        <span>✓ Adventurous Journeys</span>
+        <span>✓ Physical Recreation</span>
+        <span>✓ Residential Project</span>
+        <span>✓ Skills Development</span>
+      </div>
     </div>
 
   </div>
